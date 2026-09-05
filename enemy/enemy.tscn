@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://bd0n6xykj3ssc"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_scxef"]
+
+[node name="enemy" type="PathFollow3D" unique_id=1077895707]
+loop = false
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=2065507035]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("CapsuleMesh_scxef")
