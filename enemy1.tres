@@ -1,0 +1,9 @@
+[gd_resource type="Resource" format=3 uid="uid://lwmt1kabhvr8"]
+
+[ext_resource type="Script" uid="uid://djnaialfas3qu" path="res://scripts/new_gd_script.gd" id="1_bkac0"]
+
+[resource]
+resource_local_to_scene = true
+script = ExtResource("1_bkac0")
+speed = 7
+health = 6

@@ -1,11 +1,20 @@
 extends PathFollow3D
 
 
-# Called when the node enters the scene tree for the first time.
+@export var speed: float = 15
+@onready var base = get_tree().get_first_node_in_group("base")
 func _ready() -> void:
-	print("test")
+	#progress = 0.0
+	こんにちは()
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+
 func _process(delta: float) -> void:
-	pass
+	move(delta)
+	if progress_ratio==1.0:
+		base.take_damage(1)
+		queue_free()
+func move(delta):
+	progress+=speed*delta
+func こんにちは():
+	print("oh my gosh")

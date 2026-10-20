@@ -5,7 +5,6 @@
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_scxef"]
 
 [node name="enemy" type="PathFollow3D" unique_id=1077895707]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.9778502, 0)
 loop = false
 script = ExtResource("1_2mvqj")
 

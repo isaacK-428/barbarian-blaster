@@ -2,6 +2,7 @@
 
 [ext_resource type="MeshLibrary" uid="uid://d4atid5far3g8" path="res://meh_libraries/space_library.tres" id="1_pw63i"]
 [ext_resource type="PackedScene" uid="uid://bd0n6xykj3ssc" path="res://enemy/enemy.tscn" id="2_7ykc4"]
+[ext_resource type="PackedScene" uid="uid://c5qmq4sdugotw" path="res://base/base.tscn" id="3_7ykc4"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_o3jxj"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -18,9 +19,9 @@ tonemap_mode = 2
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_o3jxj"]
 albedo_color = Color(0.12966222, 0.6245292, 0, 1)
 
-[sub_resource type="Curve3D" id="Curve3D_w2twt"]
+[sub_resource type="Curve3D" id="Curve3D_pw63i"]
 _data = {
-"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 2.0556335, 0, -18.772785, 0, 0, 0, 0, 0, 0, 1.9347153, 0, -10.247945, 0, 0, 0, 0, 0, 0, -14.208065, 0, -9.550243, 0, 0, 0, 0, 0, 0, -13.328983, 0, 12.754615, 0, 0, 0, 0, 0, 0, 25.75589, 0, 13.633699, 0, 0, 0, 0, 0, 0, 25.63498, 0, 6.0157537, 0, 0, 0, 0, 0, 0, 29.625328, 0, 5.773916, 0, 0, 0, 0, 0, 0, 29.564873, 0, 1.3603477, 0, 0, 0, 0, 0, 0, 38.633842, 0, 1.4812634, 0, 0, 0, 0, 0, 0, 37.54557, 0, 25.665207, 0, 0, 0, 0, 0, 0, 13.482544, 0, 25.483826, 0, 0, 0, 0, 0, 0, 13.543007, 0, 29.716015, 0, 0, 0, 0, 0, 0, 5.985527, 0, 30.292797, 0, 0, 0, 0, 0, 0, 6.1669083, 0, 34.19005, 0, 0, 0, 0, 0, 0, 2.0556335, 0, 33.766827, 0, 0, 0, 0, 0, 0, 2.1765518, 0, 45.49604, 0, 0, 0, 0, 0, 0, -6.045986, 0, 45.8588),
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 2.0556335, 0, -18.772785, 0, 0, 0, 0, 0, 0, 1.9347153, 0, -9.543112, 0, 0, 0, 0, 0, 0, -14.208065, 0, -9.550243, 0, 0, 0, 0, 0, 0, -13.328983, 0, 13.754615, 0, 0, 0, 0, 0, 0, 25.75589, 0, 13.633699, 0, 0, 0, 0, 0, 0, 25.63498, 0, 6.0157537, 0, 0, 0, 0, 0, 0, 29.625328, 0, 5.773916, 0, 0, 0, 0, 0, 0, 29.564873, 0, 1.3603477, 0, 0, 0, 0, 0, 0, 38.633842, 0, 1.4812634, 0, 0, 0, 0, 0, 0, 37.54557, 0, 25.665207, 0, 0, 0, 0, 0, 0, 13.482544, 0, 25.483826, 0, 0, 0, 0, 0, 0, 13.543007, 0, 29.716015, 0, 0, 0, 0, 0, 0, 5.985527, 0, 30.292797, 0, 0, 0, 0, 0, 0, 6.1669083, 0, 34.19005, 0, 0, 0, 0, 0, 0, 2.0556335, 0, 33.766827, 0, 0, 0, 0, 0, 0, 2.1765518, 0, 45.49604, 0, 0, 0, 0, 0, 0, -6.045986, 0, 45.8588),
 "tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
 }
 point_count = 17
@@ -48,7 +49,7 @@ data = {
 }
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1270885694]
-transform = Transform3D(1, 1.7254735e-07, -2.82557e-08, 0, 0.16160376, 0.98685575, 1.7484555e-07, -0.98685575, 0.16160376, 9.367786, 45.97073, 20.134127)
+transform = Transform3D(1, 1.7254735e-07, -2.8255704e-08, -4.7436668e-08, 0.4232825, 0.90599775, 1.6828764e-07, -0.90599775, 0.4232825, 9.367786, 32.99233, 40.623764)
 
 [node name="road" type="CSGPolygon3D" parent="." unique_id=697050153]
 polygon = PackedVector2Array(0, 0, -1, 0.1, 1, 0.1, 1, 0)
@@ -93,7 +94,32 @@ path_u_distance = 1.0
 path_joined = false
 
 [node name="Path3D" type="Path3D" parent="." unique_id=200825710]
-curve = SubResource("Curve3D_w2twt")
+curve = SubResource("Curve3D_pw63i")
 
 [node name="enemy" parent="Path3D" unique_id=1077895707 instance=ExtResource("2_7ykc4")]
-transform = Transform3D(-0.9998972, 0, 0.014182689, 0, 1, 0, -0.014182689, 0, -0.9998972, 2.0556335, 0, -18.772785)
+transform = Transform3D(-0.013331732, 0, -0.9999077, 0, 1, 0, 0.9999077, 0, -0.013331732, 38.050217, 0, 1.473482)
+progress = 112.29606
+speed = 36.35
+
+[node name="enemy2" parent="Path3D" unique_id=2111689381 instance=ExtResource("2_7ykc4")]
+transform = Transform3D(0.9998704, 0, 0.015869765, 0, 1, 0, -0.015869765, 0, 0.9998704, 25.68574, 0, 9.213791)
+progress = 92.20013
+speed = 36.35
+
+[node name="enemy3" parent="Path3D" unique_id=2086743075 instance=ExtResource("2_7ykc4")]
+transform = Transform3D(0.0030934196, 0, -0.99999106, 0, 1, 0, 0.99999106, 0, 0.0030934196, 5.056436, 0, 13.697736)
+progress = 67.080215
+speed = 36.35
+
+[node name="enemy4" parent="Path3D" unique_id=788466399 instance=ExtResource("2_7ykc4")]
+transform = Transform3D(0.0075375703, 0, 0.9999666, 0, 1, 0, -0.9999666, 0, 0.0075375703, 31.189611, 0, 25.617298)
+progress = 143.44475
+speed = 36.35
+
+[node name="enemy5" parent="Path3D" unique_id=430166604 instance=ExtResource("2_7ykc4")]
+transform = Transform3D(0.00044174117, 0, 0.99998915, 0, 1, 0, -0.99998915, 0, 0.00044174117, -2.7812457, 0, -9.545196)
+progress = 13.946575
+speed = 36.35
+
+[node name="base" parent="." unique_id=2070879093 instance=ExtResource("3_7ykc4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, 46)
