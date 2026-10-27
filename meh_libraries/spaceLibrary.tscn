@@ -28,6 +28,7 @@ mesh = SubResource("BoxMesh_ckvdt")
 [node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D" unique_id=384839413]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D" unique_id=557675503]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.9604645e-08, 0)
 shape = SubResource("ConcavePolygonShape3D_ckvdt")
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=2044106252]
