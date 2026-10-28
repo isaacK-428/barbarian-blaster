@@ -3,87 +3,115 @@
 [ext_resource type="Script" uid="uid://bbdejv6n7qll" path="res://scripts/turret.gd" id="1_el7wl"]
 [ext_resource type="PackedScene" uid="uid://b4kl4iyg6w4ym" path="res://scenes/projectile.tscn" id="2_485p4"]
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_el7wl"]
+albedo_color = Color(0, 0, 0, 1)
+metallic = 0.41
+backlight_enabled = true
+backlight = Color(1, 1, 1, 1)
+
 [sub_resource type="BoxMesh" id="BoxMesh_fowog"]
 
 [node name="turret" type="Node3D" unique_id=256472171]
+transform = Transform3D(1.93, 0, 0, 0, 1.93, 0, 0, 0, 1.93, 0, 0, 0)
 script = ExtResource("1_el7wl")
 bullet = ExtResource("2_485p4")
 
 [node name="base" type="CSGCylinder3D" parent="." unique_id=511251001]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.580875, 0)
+material_override = SubResource("StandardMaterial3D_el7wl")
 radius = 0.4638672
 height = 1.16175
 sides = 14
 
 [node name="base3" type="CSGCylinder3D" parent="." unique_id=845459651]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7623546, 0)
+material_override = SubResource("StandardMaterial3D_el7wl")
 radius = 0.072753906
 height = 1.6638827
 sides = 14
 
 [node name="base2" type="CSGCylinder3D" parent="." unique_id=1047277093]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.018071115, 0)
+material_override = SubResource("StandardMaterial3D_el7wl")
 radius = 0.8178711
 height = 0.16792381
 sides = 14
 
 [node name="start" type="CSGCylinder3D" parent="." unique_id=452764562]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2893021, 0)
+material_override = SubResource("StandardMaterial3D_el7wl")
 radius = 0.3076172
 height = 0.39499706
 sides = 14
 
 [node name="ring" type="CSGCylinder3D" parent="." unique_id=1759722694]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.81212795, 0)
+material_override = SubResource("StandardMaterial3D_el7wl")
 radius = 0.51708984
 height = 0.010597646
 sides = 14
 
 [node name="ring2" type="CSGCylinder3D" parent="." unique_id=1459005011]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.478987, 0)
+material_override = SubResource("StandardMaterial3D_el7wl")
 radius = 0.51708984
 height = 0.010597646
 sides = 14
 
 [node name="ring3" type="CSGCylinder3D" parent="." unique_id=518173027]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7261758, 0)
+material_override = SubResource("StandardMaterial3D_el7wl")
 radius = 0.51708984
 height = 0.010597646
 sides = 14
 
 [node name="ring4" type="CSGCylinder3D" parent="." unique_id=218077381]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6042576, 0)
+material_override = SubResource("StandardMaterial3D_el7wl")
 radius = 0.51708984
 height = 0.010597646
 sides = 14
 
 [node name="barrel" type="Node3D" parent="." unique_id=1317344647]
-transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0.021987855, 0, 0.20958829)
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0.021987855, 0, 0.02657032)
 
 [node name="CSGCylinder3D" type="CSGCylinder3D" parent="barrel" unique_id=802884986]
 transform = Transform3D(1.9106853e-15, 4.371138e-08, 0.99999994, 0.9999999, -4.371138e-08, 0, 4.3711385e-08, 0.9999998, -4.3711385e-08, 0.03099072, 1.3197197, -0.7767609)
+material_override = SubResource("StandardMaterial3D_el7wl")
 radius = 0.09667969
 height = 1.1960449
 
+[node name="CSGCylinder3D4" type="CSGCylinder3D" parent="barrel" unique_id=582032949]
+transform = Transform3D(1.9106853e-15, 4.371138e-08, 0.99999994, 0.9999999, -4.371138e-08, 0, 4.3711385e-08, 0.9999998, -4.3711385e-08, 0.02894745, 1.3197197, -1.2957428)
+material_override = SubResource("StandardMaterial3D_el7wl")
+radius = 0.047851563
+height = 0.256958
+
 [node name="CSGCylinder3D2" type="CSGCylinder3D" parent="barrel" unique_id=579306762]
 transform = Transform3D(1.9106853e-15, 4.371138e-08, 0.99999994, 0.9999999, -4.371138e-08, 0, 4.3711385e-08, 0.9999998, -4.3711385e-08, 0.030990737, 1.3197197, -0.40163887)
+material_override = SubResource("StandardMaterial3D_el7wl")
 radius = 0.14257813
 height = 0.44580078
 
 [node name="CSGCylinder3D3" type="CSGCylinder3D" parent="barrel" unique_id=89779564]
 transform = Transform3D(1.9106853e-15, 4.371138e-08, 0.99999994, 0.9999999, -4.371138e-08, 0, 4.3711385e-08, 0.9999998, -4.3711385e-08, 0.03099074, 1.4259425, -0.30312812)
+material_override = SubResource("StandardMaterial3D_el7wl")
 radius = 0.09472656
 height = 0.2487793
 sides = 13
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="barrel" unique_id=1066465358]
 transform = Transform3D(0.08999886, -0.00022629336, -0.00039159312, 0.00022787967, 0.089998975, 0.00036451314, 0.00039067215, -0.00036550008, 0.08999841, 0.04556948, 1.4245539, -1.1137857)
+material_override = SubResource("StandardMaterial3D_el7wl")
 mesh = SubResource("BoxMesh_fowog")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1189448804]
 transform = Transform3D(0.23999695, -0.00060344674, -0.0010442493, 0.000607679, 0.23999725, 0.00097203365, 0.0010417922, -0.0009746667, 0.23999575, -0.011788905, 1.4749477, 0)
+material_override = SubResource("StandardMaterial3D_el7wl")
 mesh = SubResource("BoxMesh_fowog")
 
 [node name="Timer" type="Timer" parent="." unique_id=471966124]
+wait_time = 0.992
+autostart = true
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

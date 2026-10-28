@@ -1,16 +1,18 @@
 extends Node3D
 
 @export var turret: PackedScene = null
+@export var enemy_path: Path3D = null
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	var T_I = turret.instantiate()
-	add_child(T_I)
+	
+	pass
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
-func spawn_turret(position: Vector3):
+func spawn_turret(new_position: Vector3):
 	var T_I = turret.instantiate()
-	T_I.global_position = position
+	T_I.global_position = new_position
+	T_I.enemy_path=enemy_path
 	add_child(T_I)

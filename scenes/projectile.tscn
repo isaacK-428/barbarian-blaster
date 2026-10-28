@@ -23,3 +23,5 @@ mesh = SubResource("SphereMesh_q3m7n")
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=1983070680]
 material_override = SubResource("StandardMaterial3D_c8fcr")
 mesh = SubResource("SphereMesh_q3m7n")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

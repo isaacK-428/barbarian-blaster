@@ -1,6 +1,6 @@
 extends PathFollow3D
 
-
+@export var enemy_type: Resource = null
 @export var speed: float = 15
 @onready var base = get_tree().get_first_node_in_group("base")
 func _ready() -> void:

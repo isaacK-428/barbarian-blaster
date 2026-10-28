@@ -1,13 +1,10 @@
 [gd_resource type="Resource" script_class="enemy_type" format=3 uid="uid://bx2rw5o2l7uy"]
 
-[sub_resource type="GDScript" id="GDScript_i5tvm"]
-script/source = "class_name enemy_type
-@export var speed: int
-@export var health: int  
-"
+[ext_resource type="Script" uid="uid://bhvosapuy4gav" path="res://scripts/enemy_resource.gd" id="1_innom"]
 
 [resource]
 resource_local_to_scene = true
-script = SubResource("GDScript_i5tvm")
-speed = 6
+script = ExtResource("1_innom")
+speed = 5
 health = 10
+damage = 2

@@ -1,7 +1,9 @@
 extends Area3D
 
 var direction := Vector3.FORWARD
-@export var speed := 40
+@export var speed := 100
+@export var target = null
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
@@ -11,4 +13,14 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	move(delta)
 func move(delta):
-	position += direction * speed * delta
+	if target==null:
+		queue_free()
+	if target!=null:
+		position += direction * speed * delta
+		direction = (target.global_position - global_position).normalized()
+
+
+func _on_body_entered(body: Node3D) -> void:
+	if body.is_in_group("enemy"):
+		body.take_damage(1)
+		queue_free()

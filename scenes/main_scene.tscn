@@ -4,19 +4,18 @@
 [ext_resource type="PackedScene" uid="uid://bd0n6xykj3ssc" path="res://enemy/enemy.tscn" id="2_7ykc4"]
 [ext_resource type="PackedScene" uid="uid://d27ewpm3ru2to" path="res://scenes/ray_picker_camera.tscn" id="2_pu3yx"]
 [ext_resource type="PackedScene" uid="uid://c5qmq4sdugotw" path="res://base/base.tscn" id="3_7ykc4"]
+[ext_resource type="Script" uid="uid://djnaialfas3qu" path="res://scripts/new_gd_script.gd" id="4_c16ls"]
 [ext_resource type="Script" uid="uid://bbmypsmpy1b4f" path="res://scripts/turret_manager.gd" id="5_gubc5"]
 [ext_resource type="PackedScene" uid="uid://dmntbutp7xgx" path="res://scenes/turret.tscn" id="6_rt2n2"]
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_o3jxj"]
-sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
-ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_c16ls"]
 
-[sub_resource type="Sky" id="Sky_0f027"]
-sky_material = SubResource("ProceduralSkyMaterial_o3jxj")
+[sub_resource type="Sky" id="Sky_18nlu"]
+sky_material = SubResource("ProceduralSkyMaterial_c16ls")
 
-[sub_resource type="Environment" id="Environment_2c62f"]
+[sub_resource type="Environment" id="Environment_c1pb6"]
 background_mode = 2
-sky = SubResource("Sky_0f027")
+sky = SubResource("Sky_18nlu")
 tonemap_mode = 2
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_o3jxj"]
@@ -24,17 +23,29 @@ albedo_color = Color(0.12966222, 0.6245292, 0, 1)
 
 [sub_resource type="Curve3D" id="Curve3D_pw63i"]
 _data = {
-"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 2.0556335, 0, -18.772785, 0, 0, 0, 0, 0, 0, 1.9347153, 0, -9.543112, 0, 0, 0, 0, 0, 0, -14.208065, 0, -9.550243, 0, 0, 0, 0, 0, 0, -13.328983, 0, 13.754615, 0, 0, 0, 0, 0, 0, 25.75589, 0, 13.633699, 0, 0, 0, 0, 0, 0, 25.63498, 0, 6.0157537, 0, 0, 0, 0, 0, 0, 29.625328, 0, 5.773916, 0, 0, 0, 0, 0, 0, 29.564873, 0, 1.3603477, 0, 0, 0, 0, 0, 0, 38.633842, 0, 1.4812634, 0, 0, 0, 0, 0, 0, 37.54557, 0, 25.665207, 0, 0, 0, 0, 0, 0, 13.482544, 0, 25.483826, 0, 0, 0, 0, 0, 0, 13.543007, 0, 29.716015, 0, 0, 0, 0, 0, 0, 5.985527, 0, 30.292797, 0, 0, 0, 0, 0, 0, 6.1669083, 0, 34.19005, 0, 0, 0, 0, 0, 0, 2.0556335, 0, 33.766827, 0, 0, 0, 0, 0, 0, 2.1765518, 0, 45.49604, 0, 0, 0, 0, 0, 0, -6.045986, 0, 45.8588),
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 2.0556335, 0, -18.772785, 0, 0, 0, 0, 0, 0, 1.9347153, 0, -9.543112, 0, 0, 0, 0, 0, 0, -14.208065, 0, -9.550243, 0, 0, 0, 0, 0, 0, -14.328983, 0, 13.754615, 0, 0, 0, 0, 0, 0, 25.75589, 0, 13.633699, 0, 0, 0, 0, 0, 0, 25.63498, 0, 6.0157537, 0, 0, 0, 0, 0, 0, 29.625328, 0, 5.773916, 0, 0, 0, 0, 0, 0, 29.564873, 0, 1.3603477, 0, 0, 0, 0, 0, 0, 38.633842, 0, 1.4812634, 0, 0, 0, 0, 0, 0, 37.54557, 0, 25.665207, 0, 0, 0, 0, 0, 0, 13.482544, 0, 25.483826, 0, 0, 0, 0, 0, 0, 13.543007, 0, 29.716015, 0, 0, 0, 0, 0, 0, 5.985527, 0, 30.292797, 0, 0, 0, 0, 0, 0, 6.1669083, 0, 34.19005, 0, 0, 0, 0, 0, 0, 2.0556335, 0, 33.766827, 0, 0, 0, 0, 0, 0, 2.1765518, 0, 45.49604, 0, 0, 0, 0, 0, 0, -6.045986, 0, 45.8588),
 "tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
 }
 point_count = 17
 
+[sub_resource type="Resource" id="Resource_c16ls"]
+resource_local_to_scene = true
+script = ExtResource("4_c16ls")
+speed = 7
+health = 6
+
+[sub_resource type="Resource" id="Resource_18nlu"]
+resource_local_to_scene = true
+script = ExtResource("4_c16ls")
+speed = 7
+health = 6
+
 [node name="main_scene" type="Node3D" unique_id=549404268]
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=799822736]
-environment = SubResource("Environment_2c62f")
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=645110574]
+environment = SubResource("Environment_c1pb6")
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=2048364754]
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1159497656]
 transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
 shadow_enabled = true
 
@@ -52,7 +63,7 @@ data = {
 }
 
 [node name="Ray_picker_camera" parent="." unique_id=900430209 node_paths=PackedStringArray("grid_map", "turret_manager") instance=ExtResource("2_pu3yx")]
-transform = Transform3D(1, 1.7254735e-07, -2.8255702e-08, -4.7436664e-08, 0.42328247, 0.90599775, 1.6828764e-07, -0.90599775, 0.42328247, 9.367786, 32.99233, 40.623764)
+transform = Transform3D(-1, -1.550833e-07, 2.0096492e-08, -8.438734e-08, 0.643349, 0.7655731, -1.3165665e-07, 0.7655731, -0.643349, 12.367786, 19.992329, -11.376236)
 grid_map = NodePath("../GridMap")
 turret_manager = NodePath("../turret_manager")
 
@@ -102,34 +113,40 @@ path_joined = false
 curve = SubResource("Curve3D_pw63i")
 
 [node name="enemy" parent="Path3D" unique_id=1077895707 instance=ExtResource("2_7ykc4")]
-transform = Transform3D(-0.013331732, 0, -0.9999077, 0, 1, 0, 0.9999077, 0, -0.013331732, 38.050217, 0, 1.473482)
+transform = Transform3D(-0.013331696, 0, -0.99990505, 0, 1, 0, 0.99990505, 0, -0.013331696, 37.06639, 0, 1.4603647)
 progress = 112.29606
 speed = 36.35
 
 [node name="enemy2" parent="Path3D" unique_id=2111689381 instance=ExtResource("2_7ykc4")]
-transform = Transform3D(0.99986947, 0, 0.01586975, 0, 1, 0, -0.01586975, 0, 0.99986947, 25.68574, 0, 9.213791)
+transform = Transform3D(0.9998472, 0, 0.015869394, 0, 1, 0, -0.015869394, 0, 0.9998472, 25.70135, 0, 10.197538)
 progress = 92.20013
 speed = 36.35
 
 [node name="enemy3" parent="Path3D" unique_id=2086743075 instance=ExtResource("2_7ykc4")]
-transform = Transform3D(0.0030934196, 0, -0.99999106, 0, 1, 0, 0.99999106, 0, 0.0030934196, 5.056436, 0, 13.697736)
+transform = Transform3D(0.0030163974, 0, -0.99998677, 0, 1, 0, 0.99998677, 0, 0.0030163974, 4.0727105, 0, 13.699107)
 progress = 67.080215
 speed = 36.35
 
 [node name="enemy4" parent="Path3D" unique_id=788466399 instance=ExtResource("2_7ykc4")]
-transform = Transform3D(0.007537563, 0, 0.99996567, 0, 1, 0, -0.99996567, 0, 0.007537563, 31.189611, 0, 25.617298)
+transform = Transform3D(0.007537198, 0, 0.999933, 0, 1, 0, -0.999933, 0, 0.007537198, 32.17329, 0, 25.624714)
 progress = 143.44475
+enemy_type = SubResource("Resource_c16ls")
 speed = 36.35
 
 [node name="enemy5" parent="Path3D" unique_id=430166604 instance=ExtResource("2_7ykc4")]
-transform = Transform3D(0.00044174076, 0, 0.9999882, 0, 1, 0, -0.9999882, 0, 0.00044174076, -2.7812457, 0, -9.545196)
+transform = Transform3D(0.00044172708, 0, 0.99995726, 0, 1, 0, -0.99995726, 0, 0.00044172708, -2.7812457, 0, -9.545196)
 progress = 13.946575
+enemy_type = SubResource("Resource_18nlu")
 speed = 36.35
 
 [node name="base" parent="." unique_id=2070879093 instance=ExtResource("3_7ykc4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, 46)
 max_health = 6
 
-[node name="turret_manager" type="Node3D" parent="." unique_id=2056450945]
+[node name="turret_manager" type="Node3D" parent="." unique_id=2056450945 node_paths=PackedStringArray("enemy_path")]
 script = ExtResource("5_gubc5")
 turret = ExtResource("6_rt2n2")
+enemy_path = NodePath("../Path3D")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=1542534033]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 12, 0)

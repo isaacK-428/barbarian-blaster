@@ -2,9 +2,8 @@
 
 [ext_resource type="Script" uid="uid://bspec4cu5ji0n" path="res://base/base.gd" id="1_mftly"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_r7l70"]
-albedo_color = Color(0.99264795, 0.53236306, 1.1551381e-06, 1)
-metallic = 0.52
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mftly"]
+albedo_color = Color(0, 0.4745098, 0, 1)
 
 [node name="base" type="Node3D" unique_id=2070879093 groups=["base"]]
 script = ExtResource("1_mftly")
@@ -15,7 +14,39 @@ use_collision = true
 radius = 2.0
 height = 6.25
 sides = 32
-material = SubResource("StandardMaterial3D_r7l70")
+material = SubResource("StandardMaterial3D_mftly")
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="." unique_id=903271183]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.980134, 0)
+use_collision = true
+radius = 3.0083008
+height = 1.3510742
+sides = 32
+material = SubResource("StandardMaterial3D_mftly")
+
+[node name="CSGCylinder3D3" type="CSGCylinder3D" parent="." unique_id=1030271271]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.5723667, 0)
+use_collision = true
+radius = 2.9243164
+height = 0.81030273
+sides = 32
+material = SubResource("StandardMaterial3D_mftly")
+
+[node name="CSGCylinder3D4" type="CSGCylinder3D" parent="." unique_id=321657125]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.235809, 0)
+use_collision = true
+radius = 2.7109375
+height = 0.81030273
+sides = 32
+material = SubResource("StandardMaterial3D_mftly")
+
+[node name="CSGCylinder3D5" type="CSGCylinder3D" parent="." unique_id=1902901176]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.7834764, 0)
+use_collision = true
+radius = 2.284668
+height = 0.81030273
+sides = 32
+material = SubResource("StandardMaterial3D_mftly")
 
 [node name="Label3D" type="Label3D" parent="." unique_id=426532770]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8, -3)
@@ -23,3 +54,31 @@ billboard = 1
 modulate = Color(0, 0, 0, 1)
 text = "Starting Health"
 font_size = 400
+
+[node name="CSGTorus3D" type="CSGTorus3D" parent="." unique_id=1811615054]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.993577, 0)
+inner_radius = 1.852
+outer_radius = 3.093
+sides = 18
+ring_sides = 18
+material = SubResource("StandardMaterial3D_mftly")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=558984697]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.3867276, 6.2853675, 0)
+size = Vector3(1, 1.6348267, 1)
+material = SubResource("StandardMaterial3D_mftly")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="." unique_id=1299693114]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.397257, 6.2853675, 0)
+size = Vector3(1, 1.6348267, 1)
+material = SubResource("StandardMaterial3D_mftly")
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="." unique_id=1939314153]
+transform = Transform3D(0.9999664, 0, -0.008202955, 0, 1, 0, 0.008202955, 0, 0.9999664, 0.04403472, 6.2853675, 2.4250417)
+size = Vector3(1, 1.6348267, 1)
+material = SubResource("StandardMaterial3D_mftly")
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="." unique_id=1072089960]
+transform = Transform3D(0.9999664, 0, -0.008202955, 0, 1, 0, 0.008202955, 0, 0.9999664, 0.04403472, 6.2853675, -2.4963946)
+size = Vector3(1, 1.6348267, 1)
+material = SubResource("StandardMaterial3D_mftly")
