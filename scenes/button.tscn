@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://0ujdds1c3i1"]
+
+[ext_resource type="Script" uid="uid://d2mk34061kw3h" path="res://scripts/button.gd" id="1_mi6dp"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_mi6dp"]
+size = Vector3(3, 1, 3)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rhj8v"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_3q610"]
+
+[node name="button" type="StaticBody3D" unique_id=1251034840 groups=["button"]]
+script = ExtResource("1_mi6dp")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=230334204]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.20000002, -0.100000024)
+shape = SubResource("BoxShape3D_mi6dp")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=644570763]
+transform = Transform3D(2.94, 0, 0, 0, 1, 0, 0, 0, 3.07, -0.08686459, 0, -0.21148801)
+material_override = SubResource("StandardMaterial3D_rhj8v")
+mesh = SubResource("BoxMesh_3q610")

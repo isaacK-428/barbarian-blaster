@@ -15,6 +15,10 @@ run/main_scene="uid://1wc2exynbr6l"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[autoload]
+
+Cheese="*uid://cs1n17ee0pr77"
+
 [input]
 
 restart={

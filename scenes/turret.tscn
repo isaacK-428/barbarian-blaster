@@ -11,7 +11,10 @@ backlight = Color(1, 1, 1, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_fowog"]
 
-[node name="turret" type="Node3D" unique_id=256472171]
+[sub_resource type="SphereShape3D" id="SphereShape3D_el7wl"]
+radius = 3.146
+
+[node name="turret" type="Node3D" unique_id=256472171 groups=["turret"]]
 transform = Transform3D(1.93, 0, 0, 0, 1.93, 0, 0, 0, 1.93, 0, 0, 0)
 script = ExtResource("1_el7wl")
 bullet = ExtResource("2_485p4")
@@ -113,5 +116,11 @@ mesh = SubResource("BoxMesh_fowog")
 [node name="Timer" type="Timer" parent="." unique_id=471966124]
 wait_time = 0.992
 autostart = true
+
+[node name="Area3D" type="Area3D" parent="." unique_id=540852476 groups=["turret"]]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=1486952820]
+transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, 0.52977276, 0)
+shape = SubResource("SphereShape3D_el7wl")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

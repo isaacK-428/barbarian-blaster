@@ -28,13 +28,13 @@ _data = {
 }
 point_count = 17
 
-[sub_resource type="Resource" id="Resource_c16ls"]
+[sub_resource type="Resource" id="Resource_c1pb6"]
 resource_local_to_scene = true
 script = ExtResource("4_c16ls")
 speed = 7
 health = 6
 
-[sub_resource type="Resource" id="Resource_18nlu"]
+[sub_resource type="Resource" id="Resource_6wevv"]
 resource_local_to_scene = true
 script = ExtResource("4_c16ls")
 speed = 7
@@ -118,7 +118,7 @@ progress = 112.29606
 speed = 36.35
 
 [node name="enemy2" parent="Path3D" unique_id=2111689381 instance=ExtResource("2_7ykc4")]
-transform = Transform3D(0.9998472, 0, 0.015869394, 0, 1, 0, -0.015869394, 0, 0.9998472, 25.70135, 0, 10.197538)
+transform = Transform3D(0.99984705, 0, 0.015869392, 0, 1, 0, -0.015869392, 0, 0.99984705, 25.70135, 0, 10.197538)
 progress = 92.20013
 speed = 36.35
 
@@ -128,15 +128,15 @@ progress = 67.080215
 speed = 36.35
 
 [node name="enemy4" parent="Path3D" unique_id=788466399 instance=ExtResource("2_7ykc4")]
-transform = Transform3D(0.007537198, 0, 0.999933, 0, 1, 0, -0.999933, 0, 0.007537198, 32.17329, 0, 25.624714)
+transform = Transform3D(0.007537197, 0, 0.9999329, 0, 1, 0, -0.9999329, 0, 0.007537197, 32.17329, 0, 25.624714)
 progress = 143.44475
-enemy_type = SubResource("Resource_c16ls")
+enemy_type = SubResource("Resource_c1pb6")
 speed = 36.35
 
 [node name="enemy5" parent="Path3D" unique_id=430166604 instance=ExtResource("2_7ykc4")]
-transform = Transform3D(0.00044172708, 0, 0.99995726, 0, 1, 0, -0.99995726, 0, 0.00044172708, -2.7812457, 0, -9.545196)
+transform = Transform3D(0.00044172702, 0, 0.99995714, 0, 1, 0, -0.99995714, 0, 0.00044172702, -2.7812457, 0, -9.545196)
 progress = 13.946575
-enemy_type = SubResource("Resource_18nlu")
+enemy_type = SubResource("Resource_6wevv")
 speed = 36.35
 
 [node name="base" parent="." unique_id=2070879093 instance=ExtResource("3_7ykc4")]

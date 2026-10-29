@@ -9,7 +9,6 @@ var current_health = 5:
 		var white = Color.WHITE
 		var C = red.lerp(white,(float(current_health)/float(max_health)))
 		$Label3D.modulate  = red.lerp(white,(float(current_health)/float(max_health)))
-		print("take damage",new_health)
 		$Label3D.text = str(new_health)+"/" + str(max_health)
 		if new_health<=0:
 			die()

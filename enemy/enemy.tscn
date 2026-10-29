@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://say8qscyooin" path="res://enemy/enemy.gd" id="1_2mvqj"]
 [ext_resource type="Script" uid="uid://b8i7vvq6fxv0h" path="res://enemy/why.gd" id="2_ofsxj"]
+[ext_resource type="PackedScene" uid="uid://be6fg3wc031bg" path="res://assets/guy.glb" id="3_ppra6"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_ofsxj"]
 seed = 18
@@ -30,6 +31,7 @@ script = ExtResource("1_2mvqj")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=2065507035]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+visible = false
 material_override = SubResource("StandardMaterial3D_p200p")
 mesh = SubResource("CapsuleMesh_scxef")
 
@@ -39,3 +41,8 @@ script = ExtResource("2_ofsxj")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=267935884]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.93859863, 0)
 shape = SubResource("CapsuleShape3D_2mvqj")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=1628613798]
+
+[node name="guy" parent="." unique_id=1930261839 instance=ExtResource("3_ppra6")]
+transform = Transform3D(0.52, 0, 0, 0, 0.52, 0, 0, 0, 0.52, 0.10424048, -0.04240322, -0.17499852)
