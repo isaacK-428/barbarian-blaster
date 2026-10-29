@@ -114,7 +114,7 @@ material_override = SubResource("StandardMaterial3D_el7wl")
 mesh = SubResource("BoxMesh_fowog")
 
 [node name="Timer" type="Timer" parent="." unique_id=471966124]
-wait_time = 0.992
+wait_time = 0.101
 autostart = true
 
 [node name="Area3D" type="Area3D" parent="." unique_id=540852476 groups=["turret"]]

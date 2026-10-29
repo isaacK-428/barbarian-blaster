@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://say8qscyooin" path="res://enemy/enemy.gd" id="1_2mvqj"]
 [ext_resource type="Script" uid="uid://b8i7vvq6fxv0h" path="res://enemy/why.gd" id="2_ofsxj"]
+[ext_resource type="Resource" uid="uid://lwmt1kabhvr8" path="res://enemy1.tres" id="2_ppra6"]
 [ext_resource type="PackedScene" uid="uid://be6fg3wc031bg" path="res://assets/guy.glb" id="3_ppra6"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_ofsxj"]
@@ -28,6 +29,7 @@ height = 2.2077637
 [node name="enemy" type="PathFollow3D" unique_id=1077895707]
 loop = false
 script = ExtResource("1_2mvqj")
+enemy_type = ExtResource("2_ppra6")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=2065507035]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
