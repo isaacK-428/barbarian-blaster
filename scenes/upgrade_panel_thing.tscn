@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://chxfjmishtit5"]
+
+[ext_resource type="Script" uid="uid://dv1bn4kjhpfs8" path="res://scripts/upgrade_panel_thing.gd" id="1_ie1tv"]
+
+[sub_resource type="Gradient" id="Gradient_1ucwu"]
+colors = PackedColorArray(0.6, 0, 1, 1, 0, 1, 1, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_nsuxr"]
+noise_type = 3
+seed = 22
+offset = Vector3(399.27, -116.05, -324.68)
+fractal_octaves = 8
+fractal_weighted_strength = 0.2
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_bsf6f"]
+noise = SubResource("FastNoiseLite_nsuxr")
+color_ramp = SubResource("Gradient_1ucwu")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gklfw"]
+albedo_texture = SubResource("NoiseTexture2D_bsf6f")
+
+[sub_resource type="BoxMesh" id="BoxMesh_fi12f"]
+size = Vector3(3.23, 1.27, 0.68)
+
+[node name="upgrade_panel_thing" type="Node3D" unique_id=1290238178 groups=["upgrde_panel"]]
+script = ExtResource("1_ie1tv")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="." unique_id=777467991]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0037246943, 1.8169181, 0.002367735)
+visible = false
+material_override = SubResource("StandardMaterial3D_gklfw")
+mesh = SubResource("BoxMesh_fi12f")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=352658032]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0037246943, -0.0038490295, 0.002367735)
+visible = false
+material_override = SubResource("StandardMaterial3D_gklfw")
+mesh = SubResource("BoxMesh_fi12f")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=215995556]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0037246943, -1.875991, 0.002367735)
+visible = false
+material_override = SubResource("StandardMaterial3D_gklfw")
+mesh = SubResource("BoxMesh_fi12f")

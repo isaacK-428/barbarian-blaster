@@ -14,3 +14,8 @@ func clicked():
 	button_actions(index)
 func button_actions(button):
 	pass
+func enable():
+	$CollisionShape3D.disabled = false
+	pass
+func disable():
+	$CollisionShape3D.disabled = true

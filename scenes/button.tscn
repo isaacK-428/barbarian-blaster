@@ -16,6 +16,7 @@ script = ExtResource("1_mi6dp")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=230334204]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.20000002, -0.100000024)
 shape = SubResource("BoxShape3D_mi6dp")
+disabled = true
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=644570763]
 transform = Transform3D(2.94, 0, 0, 0, 1, 0, 0, 0, 3.07, -0.08686459, 0, -0.21148801)
