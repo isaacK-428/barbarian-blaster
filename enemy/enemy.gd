@@ -5,7 +5,7 @@ extends PathFollow3D
 @onready var base = get_tree().get_first_node_in_group("base")
 func _ready() -> void:
 	#progress = 0.0
-	こんにちは()
+	pass
 
 
 
@@ -16,5 +16,3 @@ func _process(delta: float) -> void:
 		queue_free()
 func move(delta):
 	progress+=speed*delta
-func こんにちは():
-	print("oh my gosh")

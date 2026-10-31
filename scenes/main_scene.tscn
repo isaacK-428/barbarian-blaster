@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://1wc2exynbr6l"]
 
+[ext_resource type="Script" uid="uid://di8mvcxe6a8cv" path="res://scripts/main_scene.gd" id="1_18nlu"]
 [ext_resource type="MeshLibrary" uid="uid://d4atid5far3g8" path="res://meh_libraries/space_library.tres" id="1_pw63i"]
 [ext_resource type="PackedScene" uid="uid://bd0n6xykj3ssc" path="res://enemy/enemy.tscn" id="2_7ykc4"]
 [ext_resource type="PackedScene" uid="uid://d27ewpm3ru2to" path="res://scenes/ray_picker_camera.tscn" id="2_pu3yx"]
@@ -7,6 +8,10 @@
 [ext_resource type="Script" uid="uid://djnaialfas3qu" path="res://scripts/new_gd_script.gd" id="4_c16ls"]
 [ext_resource type="Script" uid="uid://bbmypsmpy1b4f" path="res://scripts/turret_manager.gd" id="5_gubc5"]
 [ext_resource type="PackedScene" uid="uid://dmntbutp7xgx" path="res://scenes/turret.tscn" id="6_rt2n2"]
+
+[sub_resource type="Curve" id="Curve_18nlu"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_c16ls"]
 
@@ -27,12 +32,6 @@ _data = {
 "tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
 }
 point_count = 17
-
-[sub_resource type="Resource" id="Resource_c16ls"]
-resource_local_to_scene = true
-script = ExtResource("4_c16ls")
-speed = 7
-health = 6
 
 [sub_resource type="Resource" id="Resource_18nlu"]
 resource_local_to_scene = true
@@ -58,7 +57,15 @@ script = ExtResource("4_c16ls")
 speed = 7
 health = 6
 
+[sub_resource type="Resource" id="Resource_mngbo"]
+resource_local_to_scene = true
+script = ExtResource("4_c16ls")
+speed = 7
+health = 6
+
 [node name="main_scene" type="Node3D" unique_id=549404268]
+script = ExtResource("1_18nlu")
+spawn_curve = SubResource("Curve_18nlu")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=645110574]
 environment = SubResource("Environment_c1pb6")
@@ -133,31 +140,31 @@ curve = SubResource("Curve3D_pw63i")
 [node name="enemy" parent="Path3D" unique_id=1077895707 instance=ExtResource("2_7ykc4")]
 transform = Transform3D(-0.013331696, 0, -0.99990505, 0, 1, 0, 0.99990505, 0, -0.013331696, 37.06639, 0, 1.4603647)
 progress = 112.29606
-enemy_type = SubResource("Resource_c16ls")
-speed = 36.35
-
-[node name="enemy2" parent="Path3D" unique_id=2111689381 instance=ExtResource("2_7ykc4")]
-transform = Transform3D(0.9998467, 0, 0.015869386, 0, 1, 0, -0.015869386, 0, 0.9998467, 25.70135, 0, 10.197538)
-progress = 92.20013
 enemy_type = SubResource("Resource_18nlu")
 speed = 36.35
 
-[node name="enemy3" parent="Path3D" unique_id=2086743075 instance=ExtResource("2_7ykc4")]
-transform = Transform3D(0.0030163974, 0, -0.99998677, 0, 1, 0, 0.99998677, 0, 0.0030163974, 4.0727105, 0, 13.699107)
-progress = 67.080215
+[node name="enemy2" parent="Path3D" unique_id=2111689381 instance=ExtResource("2_7ykc4")]
+transform = Transform3D(0.99984616, 0, 0.015869377, 0, 1, 0, -0.015869377, 0, 0.99984616, 25.70135, 0, 10.197538)
+progress = 92.20013
 enemy_type = SubResource("Resource_c1pb6")
 speed = 36.35
 
-[node name="enemy4" parent="Path3D" unique_id=788466399 instance=ExtResource("2_7ykc4")]
-transform = Transform3D(0.007537194, 0, 0.9999325, 0, 1, 0, -0.9999325, 0, 0.007537194, 32.17329, 0, 25.624714)
-progress = 143.44475
+[node name="enemy3" parent="Path3D" unique_id=2086743075 instance=ExtResource("2_7ykc4")]
+transform = Transform3D(-0.9999778, 0, 0.0051885475, 0, 1, 0, -0.0051885475, 0, -0.9999778, -14.306612, 0, 9.443232)
+progress = 44.36688
 enemy_type = SubResource("Resource_6wevv")
 speed = 36.35
 
-[node name="enemy5" parent="Path3D" unique_id=430166604 instance=ExtResource("2_7ykc4")]
-transform = Transform3D(0.00044172688, 0, 0.9999568, 0, 1, 0, -0.9999568, 0, 0.00044172688, -2.7812457, 0, -9.545196)
-progress = 13.946575
+[node name="enemy4" parent="Path3D" unique_id=788466399 instance=ExtResource("2_7ykc4")]
+transform = Transform3D(0.00753719, 0, 0.999932, 0, 1, 0, -0.999932, 0, 0.00753719, 32.17329, 0, 25.624714)
+progress = 143.44475
 enemy_type = SubResource("Resource_e1cbu")
+speed = 36.35
+
+[node name="enemy5" parent="Path3D" unique_id=430166604 instance=ExtResource("2_7ykc4")]
+transform = Transform3D(0.00044172665, 0, 0.99995625, 0, 1, 0, -0.99995625, 0, 0.00044172665, -2.7812457, 0, -9.545196)
+progress = 13.946575
+enemy_type = SubResource("Resource_mngbo")
 speed = 36.35
 
 [node name="base" parent="." unique_id=2070879093 instance=ExtResource("3_7ykc4")]
@@ -171,3 +178,20 @@ enemy_path = NodePath("../Path3D")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=1542534033]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 12, 0)
+
+[node name="enemy_spawn" type="Timer" parent="." unique_id=982898853]
+wait_time = 1.154
+autostart = true
+
+[node name="Timer" type="Timer" parent="enemy_spawn" unique_id=69847574]
+autostart = true
+
+[node name="Label3D" type="Label3D" parent="." unique_id=1710270205]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.220886, 5.8807983, 43.841797)
+pixel_size = 0.4233
+billboard = 1
+text = "Gold"
+font_size = 15
+
+[connection signal="timeout" from="enemy_spawn" to="." method="_on_enemy_spawn_timeout"]
+[connection signal="timeout" from="enemy_spawn/Timer" to="." method="_on_timer_timeout"]

@@ -4,12 +4,31 @@
 [ext_resource type="PackedScene" uid="uid://0ujdds1c3i1" path="res://scenes/button.tscn" id="2_yjt0p"]
 [ext_resource type="PackedScene" uid="uid://chxfjmishtit5" path="res://scenes/upgrade_panel_thing.tscn" id="3_pjwn7"]
 
+[sub_resource type="BoxMesh" id="BoxMesh_pjwn7"]
+size = Vector3(12.59, 2.83, 1.29)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_pjwn7"]
+noise_type = 3
+seed = -2
+offset = Vector3(-1000, 0, 0)
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_jy3mm"]
+noise = SubResource("FastNoiseLite_pjwn7")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fhtue"]
+albedo_color = Color(0.22745098, 0.12156863, 1, 1)
+roughness_texture = SubResource("NoiseTexture2D_jy3mm")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_pjwn7"]
+size = Vector3(12.788788, 2.6798706, 0.001)
+
 [node name="Ray_picker_camera" type="Camera3D" unique_id=900430209 groups=["camera"]]
 transform = Transform3D(1, 1.7254735e-07, -2.8255704e-08, -4.7436668e-08, 0.4232825, 0.90599775, 1.6828764e-07, -0.90599775, 0.4232825, 0, 0, 0)
 script = ExtResource("1_kikph")
 
 [node name="RayCast3D" type="RayCast3D" parent="." unique_id=457775816]
 transform = Transform3D(78.5, 0, 0, 0, 78.5, 0, 0, 0, 78.5, 0, 0, 0)
+visible = false
 collide_with_areas = true
 
 [node name="up_grade_UI" type="Node3D" parent="." unique_id=1248385027]
@@ -60,6 +79,38 @@ index = 4
 [node name="Label3D" type="Label3D" parent="up_grade_UI" unique_id=994029802]
 transform = Transform3D(1, 0, -1.3500312e-13, 0, 1, 0, 0, 0, 1, -6.0000014, 7.4857073, -12.327373)
 visible = false
-pixel_size = 0.1
-text = "Upgrade"
+pixel_size = 1.7732
 font_size = 50
+
+[node name="Node3D" type="Node3D" parent="." unique_id=101901183]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1576912195]
+transform = Transform3D(1, 0, -1.4210855e-14, 0, 1, 0, 0, 0, 1, 9.007746e-07, -5.7624836, -12.000013)
+mesh = SubResource("BoxMesh_pjwn7")
+surface_material_override/0 = SubResource("StandardMaterial3D_fhtue")
+
+[node name="button" parent="MeshInstance3D" unique_id=1251034840 instance=ExtResource("2_yjt0p")]
+transform = Transform3D(0.52, 7.1054274e-15, 7.1054274e-15, 1.4210855e-14, 0.0045378357, 0.5199802, 0, -0.5199802, 0.0045378357, -4.9493327, 0.11101198, 0.5268259)
+index = 5
+
+[node name="button2" parent="MeshInstance3D" unique_id=1972948206 instance=ExtResource("2_yjt0p")]
+transform = Transform3D(0.52, 1.4210855e-14, 7.1054274e-15, 2.842171e-14, 0.0045378357, 0.5199802, -7.1054274e-15, -0.5199802, 0.0045378357, -2.503531, 0.11101246, 0.5268278)
+index = 6
+
+[node name="button3" parent="MeshInstance3D" unique_id=1421422813 instance=ExtResource("2_yjt0p")]
+transform = Transform3D(0.52, 1.4210855e-14, 7.1054274e-15, 2.842171e-14, 0.0045378357, 0.5199802, -7.1054274e-15, -0.5199802, 0.0045378357, 0.04048275, 0.111012936, 0.5268278)
+index = 7
+
+[node name="button4" parent="MeshInstance3D" unique_id=982722322 instance=ExtResource("2_yjt0p")]
+transform = Transform3D(0.52, 1.7763568e-14, 7.1054274e-15, 3.5527137e-14, 0.0045378357, 0.5199802, -1.0658141e-14, -0.5199802, 0.0045378357, 2.4958847, 0.11101341, 0.52682877)
+index = 8
+
+[node name="button5" parent="MeshInstance3D" unique_id=2002710640 instance=ExtResource("2_yjt0p")]
+transform = Transform3D(0.52, 2.1316282e-14, 7.1054274e-15, 4.973799e-14, 0.0045378357, 0.5199802, -1.7763568e-14, -0.5199802, 0.0045378357, 4.8937154, 0.111014366, 0.52682877)
+index = 9
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D" unique_id=1344290745]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D" unique_id=704053784]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.023593407, -0.03040409, -0.6267576)
+shape = SubResource("BoxShape3D_pjwn7")
