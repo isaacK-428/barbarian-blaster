@@ -10,10 +10,13 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 func clicked():
+	print("random button was clicked")
 	emit_signal("button_pressed")
 	button_actions(index)
 func button_actions(button):
-	pass
+	match button:
+		5:
+			print(5)
 func enable():
 	$CollisionShape3D.disabled = false
 	pass

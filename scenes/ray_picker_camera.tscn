@@ -90,7 +90,7 @@ mesh = SubResource("BoxMesh_pjwn7")
 surface_material_override/0 = SubResource("StandardMaterial3D_fhtue")
 
 [node name="button" parent="MeshInstance3D" unique_id=1251034840 instance=ExtResource("2_yjt0p")]
-transform = Transform3D(0.52, 7.1054274e-15, 7.1054274e-15, 1.4210855e-14, 0.0045378357, 0.5199802, 0, -0.5199802, 0.0045378357, -4.9493327, 0.11101198, 0.5268259)
+transform = Transform3D(0.52, 1.0658141e-14, 7.1054274e-15, 2.1316282e-14, 0.0045378357, 0.5199802, -3.5527137e-15, -0.5199802, 0.0045378357, -4.9493327, 0.11101198, 0.52682686)
 index = 5
 
 [node name="button2" parent="MeshInstance3D" unique_id=1972948206 instance=ExtResource("2_yjt0p")]
