@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="enemy_type" format=3 uid="uid://bc7sscaxcdrke"]
+
+[ext_resource type="Script" uid="uid://bhvosapuy4gav" path="res://scripts/enemy_resource.gd" id="1_fqfgw"]
+
+[resource]
+resource_local_to_scene = true
+script = ExtResource("1_fqfgw")
+speed = 12
+health = 2
+gold = 8

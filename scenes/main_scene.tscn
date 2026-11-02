@@ -10,7 +10,8 @@
 [ext_resource type="PackedScene" uid="uid://dmntbutp7xgx" path="res://scenes/turret.tscn" id="6_rt2n2"]
 
 [sub_resource type="Curve" id="Curve_18nlu"]
-_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+bake_resolution = 106
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 0.8053036), 1.4313525, 0.0, 0, 0]
 point_count = 2
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_c16ls"]
@@ -144,7 +145,7 @@ enemy_type = SubResource("Resource_18nlu")
 speed = 36.35
 
 [node name="enemy2" parent="Path3D" unique_id=2111689381 instance=ExtResource("2_7ykc4")]
-transform = Transform3D(0.99984616, 0, 0.015869377, 0, 1, 0, -0.015869377, 0, 0.99984616, 25.70135, 0, 10.197538)
+transform = Transform3D(0.999845, 0, 0.01586936, 0, 1, 0, -0.01586936, 0, 0.999845, 25.70135, 0, 10.197538)
 progress = 92.20013
 enemy_type = SubResource("Resource_c1pb6")
 speed = 36.35
@@ -156,13 +157,13 @@ enemy_type = SubResource("Resource_6wevv")
 speed = 36.35
 
 [node name="enemy4" parent="Path3D" unique_id=788466399 instance=ExtResource("2_7ykc4")]
-transform = Transform3D(0.00753719, 0, 0.999932, 0, 1, 0, -0.999932, 0, 0.00753719, 32.17329, 0, 25.624714)
+transform = Transform3D(0.0075371815, 0, 0.99993086, 0, 1, 0, -0.99993086, 0, 0.0075371815, 32.17329, 0, 25.624714)
 progress = 143.44475
 enemy_type = SubResource("Resource_e1cbu")
 speed = 36.35
 
 [node name="enemy5" parent="Path3D" unique_id=430166604 instance=ExtResource("2_7ykc4")]
-transform = Transform3D(0.00044172665, 0, 0.99995625, 0, 1, 0, -0.99995625, 0, 0.00044172665, -2.7812457, 0, -9.545196)
+transform = Transform3D(0.00044172615, 0, 0.9999551, 0, 1, 0, -0.9999551, 0, 0.00044172615, -2.7812457, 0, -9.545196)
 progress = 13.946575
 enemy_type = SubResource("Resource_mngbo")
 speed = 36.35
@@ -181,14 +182,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 12, 0)
 
 [node name="enemy_spawn" type="Timer" parent="." unique_id=982898853]
 wait_time = 1.154
+one_shot = true
 autostart = true
 
 [node name="Timer" type="Timer" parent="enemy_spawn" unique_id=69847574]
 autostart = true
 
 [node name="Label3D" type="Label3D" parent="." unique_id=1710270205]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.220886, 5.8807983, 43.841797)
-pixel_size = 0.4233
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.8112698, 8.319363, -9.024193)
+pixel_size = 0.0555
 billboard = 1
 text = "Gold"
 font_size = 15

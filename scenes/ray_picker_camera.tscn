@@ -93,21 +93,51 @@ surface_material_override/0 = SubResource("StandardMaterial3D_fhtue")
 transform = Transform3D(0.52, 1.0658141e-14, 7.1054274e-15, 2.1316282e-14, 0.0045378357, 0.5199802, -3.5527137e-15, -0.5199802, 0.0045378357, -4.9493327, 0.11101198, 0.52682686)
 index = 5
 
+[node name="show_tower_1" type="Label3D" parent="MeshInstance3D/button" unique_id=2119079244]
+transform = Transform3D(1, -1.4210855e-14, -4.2632564e-14, 0, 1.0000002, 2.9802322e-08, 0, -2.9802322e-08, 1.0000002, 0, -0.49469185, 1.8968039)
+pixel_size = 0.02
+billboard = 1
+text = "Standard tower"
+
 [node name="button2" parent="MeshInstance3D" unique_id=1972948206 instance=ExtResource("2_yjt0p")]
 transform = Transform3D(0.52, 1.4210855e-14, 7.1054274e-15, 2.842171e-14, 0.0045378357, 0.5199802, -7.1054274e-15, -0.5199802, 0.0045378357, -2.503531, 0.11101246, 0.5268278)
 index = 6
+
+[node name="show_tower_2" type="Label3D" parent="MeshInstance3D/button2" unique_id=400707895]
+transform = Transform3D(1, -3.5527137e-14, -4.2632564e-14, 0, 1.0000002, 2.9802322e-08, 1.4210855e-14, -2.9802322e-08, 1.0000002, 0.31767464, -0.49468994, 1.8968029)
+pixel_size = 0.02
+billboard = 1
+text = "Sniper"
 
 [node name="button3" parent="MeshInstance3D" unique_id=1421422813 instance=ExtResource("2_yjt0p")]
 transform = Transform3D(0.52, 1.4210855e-14, 7.1054274e-15, 2.842171e-14, 0.0045378357, 0.5199802, -7.1054274e-15, -0.5199802, 0.0045378357, 0.04048275, 0.111012936, 0.5268278)
 index = 7
 
+[node name="show_tower_3" type="Label3D" parent="MeshInstance3D/button3" unique_id=2132530194]
+transform = Transform3D(1, -5.684342e-14, -4.2632564e-14, 7.1054274e-15, 1.0000002, 2.9802322e-08, 5.684342e-14, -2.9802322e-08, 1.0000002, 0.2797061, -0.49468994, 1.8968029)
+pixel_size = 0.02
+billboard = 1
+text = "Minigunner"
+
 [node name="button4" parent="MeshInstance3D" unique_id=982722322 instance=ExtResource("2_yjt0p")]
 transform = Transform3D(0.52, 1.7763568e-14, 7.1054274e-15, 3.5527137e-14, 0.0045378357, 0.5199802, -1.0658141e-14, -0.5199802, 0.0045378357, 2.4958847, 0.11101341, 0.52682877)
 index = 8
 
+[node name="show_tower_4" type="Label3D" parent="MeshInstance3D/button4" unique_id=1474916249]
+transform = Transform3D(1, -8.526513e-14, -4.2632564e-14, 0, 1.0000002, 2.9802322e-08, 5.684342e-14, -2.9802322e-08, 1.0000002, 4.712781, -0.4946823, 1.896802)
+pixel_size = 0.02
+billboard = 1
+text = "Blaster"
+
 [node name="button5" parent="MeshInstance3D" unique_id=2002710640 instance=ExtResource("2_yjt0p")]
 transform = Transform3D(0.52, 2.1316282e-14, 7.1054274e-15, 4.973799e-14, 0.0045378357, 0.5199802, -1.7763568e-14, -0.5199802, 0.0045378357, 4.8937154, 0.111014366, 0.52682877)
 index = 9
+
+[node name="show_tower_5" type="Label3D" parent="MeshInstance3D/button5" unique_id=1608376401]
+transform = Transform3D(1, -1.2789769e-13, -8.526513e-14, -7.1054274e-15, 1.0000002, 2.9802322e-08, 2.842171e-14, -2.9802322e-08, 1.0000002, -4.5114226, -0.49468422, 1.8968)
+pixel_size = 0.02
+billboard = 1
+text = "Miner"
 
 [node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D" unique_id=1344290745]
 

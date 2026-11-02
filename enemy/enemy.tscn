@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://say8qscyooin" path="res://enemy/enemy.gd" id="1_2mvqj"]
 [ext_resource type="Script" uid="uid://b8i7vvq6fxv0h" path="res://enemy/why.gd" id="2_ofsxj"]
-[ext_resource type="Resource" uid="uid://lwmt1kabhvr8" path="res://enemy1.tres" id="2_ppra6"]
+[ext_resource type="Resource" uid="uid://lwmt1kabhvr8" path="res://base_enemy.tres" id="2_ppra6"]
 [ext_resource type="PackedScene" uid="uid://be6fg3wc031bg" path="res://assets/guy.glb" id="3_ppra6"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_ofsxj"]
@@ -26,7 +26,7 @@ metallic_texture = SubResource("NoiseTexture2D_ppra6")
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_2mvqj"]
 height = 2.2077637
 
-[node name="enemy" type="PathFollow3D" unique_id=1077895707]
+[node name="enemy" type="PathFollow3D" unique_id=1077895707 groups=["enemy"]]
 loop = false
 script = ExtResource("1_2mvqj")
 enemy_type = ExtResource("2_ppra6")

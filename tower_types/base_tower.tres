@@ -1,0 +1,8 @@
+[gd_resource type="Resource" format=3 uid="uid://u6hwuqm4p66q"]
+
+[ext_resource type="Script" uid="uid://cdutrhkw34gh7" path="res://tower_types/tower_type.gd" id="1_1b6u3"]
+
+[resource]
+script = ExtResource("1_1b6u3")
+fire_rate = 0.8
+name = "base tower"

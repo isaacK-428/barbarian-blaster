@@ -1,0 +1,9 @@
+[gd_resource type="Resource" format=3 uid="uid://b7skugfku5tie"]
+
+[ext_resource type="Script" uid="uid://cdutrhkw34gh7" path="res://tower_types/tower_type.gd" id="1_chfgn"]
+
+[resource]
+script = ExtResource("1_chfgn")
+fire_rate = 0.9
+damage = 5.0
+name = "blaster"

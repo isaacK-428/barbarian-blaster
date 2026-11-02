@@ -1,9 +1,0 @@
-[gd_resource type="Resource" script_class="enemy_type" format=3 uid="uid://bx2rw5o2l7uy"]
-
-[ext_resource type="Script" uid="uid://bhvosapuy4gav" path="res://scripts/enemy_resource.gd" id="1_innom"]
-
-[resource]
-resource_local_to_scene = true
-script = ExtResource("1_innom")
-speed = 3
-health = 6

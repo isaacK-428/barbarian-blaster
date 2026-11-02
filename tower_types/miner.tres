@@ -1,0 +1,7 @@
+[gd_resource type="Resource" format=3 uid="uid://b041c1s3g863j"]
+
+[ext_resource type="Script" uid="uid://cdutrhkw34gh7" path="res://tower_types/tower_type.gd" id="1_ocfjj"]
+
+[resource]
+script = ExtResource("1_ocfjj")
+name = "miner"

@@ -1,0 +1,9 @@
+[gd_resource type="Resource" format=3 uid="uid://ctidlrnci20gt"]
+
+[ext_resource type="Script" uid="uid://cdutrhkw34gh7" path="res://tower_types/tower_type.gd" id="1_107vc"]
+
+[resource]
+script = ExtResource("1_107vc")
+fire_rate = 0.9
+damage = 5000.0
+name = "sniper"

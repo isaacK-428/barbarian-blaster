@@ -1,11 +1,20 @@
 extends PathFollow3D
 
 @export var enemy_type: Resource = null
-@export var speed: float = 15
+@export var speed: float = 15;
 @onready var base = get_tree().get_first_node_in_group("base")
+
+
 func _ready() -> void:
+	
 	#progress = 0.0
-	pass
+	#enemy_type = enemy_types.pick_random()
+	speed = enemy_type.speed
+	$StaticBody3D.max_health = enemy_type.health
+	$StaticBody3D.health = $StaticBody3D.max_health
+	if get_tree().get_nodes_in_group("enemy").size()>=0:                                                                   
+		for turret in get_tree().get_nodes_in_group("actual_turret"):
+			turret.shoot()
 
 
 
