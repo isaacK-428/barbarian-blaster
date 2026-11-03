@@ -35,7 +35,9 @@ var actual_upgrades = [
 	[1,1,1],]
 	,
 ]
-
+var turret_gold_costs = [
+	15,30,15,35,20
+]
 var selected_turret
 var turret_types = [
 	preload("res://tower_types/base_tower.tres"),
@@ -108,11 +110,13 @@ func hide_upgrade_UI():
 		$up_grade_UI.hide()
 		current_turret.get_parent().upgrades = upgrades
 func button_actions(button):
+	#if you clikcon this before you clikc on any  turret instances are created it crashes
 	var resource_index = null
-	for i in turret_types.size():
-		if turret_types[i] == current_turret.get_parent().turret_type:
-			turret_resource = current_turret.get_parent().turret_type
-			resource_index = i
+	if current_turret!=null:
+		for i in turret_types.size():
+			if turret_types[i] == current_turret.get_parent().turret_type:
+				turret_resource = current_turret.get_parent().turret_type
+				resource_index = i
 	match button:
 		1:
 			if upgrades[0] <= 2 and Cheese.gold >= upgrade_gold_costs[0][upgrades[0] + 1]:
@@ -154,6 +158,7 @@ func button_actions(button):
 		9:
 			print("miner")
 			new_turret = turret_types[1]
+
 			
 	if button <= 4:
 		$up_grade_UI/button2/Label3D2.text = str(fire_rate)

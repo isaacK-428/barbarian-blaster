@@ -8,22 +8,14 @@ var enemy_tokens = 20
 var wave = 1
 var time_passed = 0
 var enemy_types = [
-	preload("res://base_enemy.tres"),
-	preload("res://fast_enemy.tres"),
-	preload("res://tank_enemy.tres")
-		
+	preload("res://base_enemy.tres")	
 ]
-var wave_enemies = [
-	[preload("res://base_enemy.tres"),
-	preload("res://fast_enemy.tres"),
-	preload("res://tank_enemy.tres")]
-	,	
-	[preload("res://base_enemy.tres"),
-	preload("res://fast_enemy.tres"),
-	preload("res://tank_enemy.tres")]
-]
+
+#var wave_total_costs = [
+	#20,30,50,90,130
+#]
 var wave_total_costs = [
-	20,30
+	5,10,15
 ]
 var enemy_costs = [
 	10,
@@ -63,8 +55,28 @@ func _on_timer_timeout() -> void:
 func wave_over():
 	print("wave over")
 	wave+=1
-	enemy_types = wave_enemies[wave-1]
+	#enemy_types = wave_enemies[wave-1]
 	enemy_tokens = wave_total_costs[wave-1]
 	await get_tree().create_timer(1.0).timeout
 	print("lets go")
+	match wave:
+		1:
+			change_wave_values([preload("res://fast_enemy.tres")],[])
+		2:
+			change_wave_values([preload("res://fast_enemy.tres"),preload("res://tank_enemy.tres")],[preload("res://base_enemy.tres")])
+		3:
+			change_wave_values([preload("res://tank_enemy.tres")],[])
+		4:
+			change_wave_values([],[])
 	$enemy_spawn.start()
+	print("enemy types     -  - - - - - - - -         ",enemy_types)
+func change_wave_values(adds: Array,subtracts: Array):
+	for i in subtracts.size():
+		var erase_index = 0
+		for j in enemy_types.size():
+			if enemy_types[j] == subtracts[i]:
+				erase_index = j
+		enemy_types.remove_at(erase_index)
+	for i in adds.size():
+		enemy_types.append(adds[i])
+			

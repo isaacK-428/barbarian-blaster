@@ -11,6 +11,7 @@ var look_enemy = null
 var fire_rate = 0.9
 var damage = 1
 var ability = 1
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	fire_rate = turret_type.fire_rate
