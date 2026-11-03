@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bbdejv6n7qll" path="res://scripts/turret.gd" id="1_el7wl"]
 [ext_resource type="PackedScene" uid="uid://b4kl4iyg6w4ym" path="res://scenes/projectile.tscn" id="2_485p4"]
+[ext_resource type="Resource" uid="uid://u6hwuqm4p66q" path="res://tower_types/base_tower.tres" id="3_485p4"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_el7wl"]
 albedo_color = Color(0, 0, 0, 1)
@@ -9,15 +10,97 @@ metallic = 0.41
 backlight_enabled = true
 backlight = Color(1, 1, 1, 1)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pp6j5"]
+albedo_color = Color(0.01335893, 0.18336526, 0.28762713, 1)
+metallic = 0.41
+backlight_enabled = true
+backlight = Color(1, 1, 1, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6fjxm"]
+albedo_color = Color(0.2, 0.23137255, 0.6745098, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dirdf"]
+albedo_color = Color(1, 0, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mqfwu"]
+albedo_color = Color(1, 0, 0, 1)
+
 [sub_resource type="BoxMesh" id="BoxMesh_fowog"]
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_el7wl"]
-radius = 3.146
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_485p4"]
+albedo_color = Color(1, 0, 0, 1)
+metallic = 0.41
+backlight_enabled = true
+backlight = Color(1, 1, 1, 1)
 
-[node name="turret" type="Node3D" unique_id=256472171 groups=["turret"]]
+[sub_resource type="SphereShape3D" id="SphereShape3D_el7wl"]
+radius = 2.4291353
+
+[sub_resource type="Animation" id="Animation_el7wl"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("barrel:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.021987855, 0, 0.02657032)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MeshInstance3D:mesh:size")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_485p4"]
+resource_name = "fire"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("barrel:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.033333335, 0.18648238),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0.021987855, 0, 0.02657032), Vector3(0.021987854, 0, -0.2442433), Vector3(0.021987852, 0, 0.046855118)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MeshInstance3D:mesh:size")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.16710202, 0.48651478),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(1, 1, 1), Vector3(1, 1.4, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_pp6j5"]
+_data = {
+&"RESET": SubResource("Animation_el7wl"),
+&"fire": SubResource("Animation_485p4")
+}
+
+[node name="turret" type="Node3D" unique_id=256472171 groups=["actual_turret", "turret"]]
 transform = Transform3D(1.93, 0, 0, 0, 1.93, 0, 0, 0, 1.93, 0, 0, 0)
 script = ExtResource("1_el7wl")
 bullet = ExtResource("2_485p4")
+turret_type = ExtResource("3_485p4")
 
 [node name="base" type="CSGCylinder3D" parent="." unique_id=511251001]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.580875, 0)
@@ -76,45 +159,174 @@ height = 0.010597646
 sides = 14
 
 [node name="barrel" type="Node3D" parent="." unique_id=1317344647]
-transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0.021987855, 0, 0.02657032)
+transform = Transform3D(-0.9999999, 0, 1.5099579e-07, 0, 0.9999999, 0, -1.5099579e-07, 0, -0.9999999, 0.021987855, 0, 0.02657032)
 
-[node name="CSGCylinder3D" type="CSGCylinder3D" parent="barrel" unique_id=802884986]
-transform = Transform3D(1.9106853e-15, 4.371138e-08, 0.99999994, 0.9999999, -4.371138e-08, 0, 4.3711385e-08, 0.9999998, -4.3711385e-08, 0.03099072, 1.3197197, -0.7767609)
+[node name="extra_stuff" type="Node3D" parent="barrel" unique_id=1441782203]
+
+[node name="sniper" type="Node3D" parent="barrel/extra_stuff" unique_id=1090909729]
+visible = false
+
+[node name="CSGCylinder3D3" type="CSGCylinder3D" parent="barrel/extra_stuff/sniper" unique_id=89779564]
+transform = Transform3D(1.910647e-15, 4.371136e-08, 1.000001, 1.000001, -4.3711445e-08, 0, 4.3711445e-08, 1.000001, -4.3711374e-08, 0.030990748, 1.4259431, -0.25045493)
+material_override = SubResource("StandardMaterial3D_pp6j5")
+radius = 0.16699219
+height = 0.14343262
+sides = 13
+
+[node name="CSGCylinder3D4" type="CSGCylinder3D" parent="barrel/extra_stuff/sniper" unique_id=38630452]
+transform = Transform3D(1.9105838e-15, 4.371136e-08, 1.000001, 1.000001, -4.3711445e-08, 0, 4.3711445e-08, 1.000001, -4.3711374e-08, 0.03099075, 1.3247998, -0.97865963)
+material_override = SubResource("StandardMaterial3D_pp6j5")
+radius = 0.049804688
+height = 1.5998383
+sides = 13
+
+[node name="CSGCylinder3D5" type="CSGCylinder3D" parent="barrel/extra_stuff/sniper" unique_id=1274948095]
+transform = Transform3D(1.9105605e-15, 4.371136e-08, 1.000001, 1.000001, -4.3711445e-08, 0, 4.3711445e-08, 1.000001, -4.3711374e-08, 0.03099075, 1.3247998, -1.0792826)
+material_override = SubResource("StandardMaterial3D_pp6j5")
+radius = 0.025390625
+height = 1.8010826
+sides = 13
+
+[node name="CSGBox3D" type="CSGBox3D" parent="barrel/extra_stuff/sniper" unique_id=1047891660]
+transform = Transform3D(1.000001, 0, -2.1316282e-14, 0, 1.000001, 0, 2.1316282e-14, 0, 1.000001, 1.8626451e-09, 1.39023, -0.39139596)
+size = Vector3(1, 0.12646484, 0.16748047)
+material = SubResource("StandardMaterial3D_6fjxm")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="barrel/extra_stuff/sniper" unique_id=336881776]
+transform = Transform3D(1.000001, 0, -2.1316282e-14, 0, 1.000001, 0, 2.1316282e-14, 0, 1.000001, 0.4370732, 1.3902304, -0.48575675)
+size = Vector3(0.12585449, 0.12646484, 0.35620117)
+material = SubResource("StandardMaterial3D_6fjxm")
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="barrel/extra_stuff/sniper/CSGBox3D2" unique_id=1238902221]
+transform = Transform3D(1.000001, -1.4210855e-14, 6.352747e-21, 0, -4.3711765e-08, 1.000001, -1.4210855e-14, -1.000001, -4.3711765e-08, 0.0006355345, 1.1920929e-07, -0.36626756)
+material_override = SubResource("StandardMaterial3D_dirdf")
+radius = 0.08886719
+height = 0.39605713
+cone = true
+material = SubResource("StandardMaterial3D_mqfwu")
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="barrel/extra_stuff/sniper" unique_id=644631791]
+transform = Transform3D(1.000001, 0, -2.1316282e-14, 0, 1.000001, 0, 2.1316282e-14, 0, 1.000001, -0.43367425, 1.3902305, -0.4857567)
+size = Vector3(0.12585449, 0.12646484, 0.35620117)
+material = SubResource("StandardMaterial3D_6fjxm")
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="barrel/extra_stuff/sniper/CSGBox3D3" unique_id=2128363520]
+transform = Transform3D(1.000001, -1.4210855e-14, 6.352747e-21, 0, -4.3711758e-08, 1.000001, -1.4210855e-14, -1.000001, -4.3711758e-08, 2.9802322e-08, 0, -0.3662675)
+material_override = SubResource("StandardMaterial3D_dirdf")
+radius = 0.08886719
+height = 0.39605713
+cone = true
+material = SubResource("StandardMaterial3D_mqfwu")
+
+[node name="min gun" type="Node3D" parent="barrel/extra_stuff" unique_id=559161323]
+transform = Transform3D(1.2400006, 0, -3.5527137e-14, 0, 1.2400006, 0, 3.5527137e-14, 0, 1.2400006, 7.450581e-09, -0.3842694, 0.16121131)
+visible = false
+
+[node name="CSGCylinder3D3" type="CSGCylinder3D" parent="barrel/extra_stuff/min gun" unique_id=186761779]
+transform = Transform3D(1.9106645e-15, 4.371136e-08, 1.000001, 1.000001, -4.3711445e-08, 0, 4.3711445e-08, 1.000001, -4.3711374e-08, 0.16011733, 1.3622006, -0.6978907)
+material_override = SubResource("StandardMaterial3D_el7wl")
+radius = 0.021972656
+height = 0.833
+
+[node name="CSGCylinder3D4" type="CSGCylinder3D" parent="barrel/extra_stuff/min gun" unique_id=1328001505]
+transform = Transform3D(1.9106643e-15, 4.371136e-08, 1.000001, 1.000001, -4.3711445e-08, 0, 4.3711445e-08, 1.000001, -4.3711374e-08, -0.15108536, 1.3622006, -0.69789076)
+material_override = SubResource("StandardMaterial3D_el7wl")
+radius = 0.021972656
+height = 0.833
+
+[node name="CSGCylinder3D5" type="CSGCylinder3D" parent="barrel/extra_stuff/min gun" unique_id=1922993717]
+transform = Transform3D(1.9106634e-15, 4.371136e-08, 1.000001, 1.000001, -4.3711445e-08, 0, 4.3711445e-08, 1.000001, -4.3711374e-08, -0.001810288, 1.5095514, -0.697891)
+material_override = SubResource("StandardMaterial3D_el7wl")
+radius = 0.021972656
+height = 0.833
+
+[node name="CSGTorus3D" type="CSGTorus3D" parent="barrel/extra_stuff/min gun" unique_id=1100309722]
+transform = Transform3D(0.97, 6.8922614e-15, 3.0127032e-22, 0, -4.2400046e-08, 0.97, 6.8922614e-15, -0.97, -4.2400046e-08, -3.3527613e-08, 1.3309202, -0.38298392)
+inner_radius = 0.1198739
+outer_radius = 0.22379051
+sides = 22
+
+[node name="CSGTorus3D2" type="CSGTorus3D" parent="barrel/extra_stuff/min gun" unique_id=1515381332]
+transform = Transform3D(0.97000015, 1.4210855e-14, 4.2351647e-22, 0, -4.2400053e-08, 0.97000015, 1.4210855e-14, -0.97000015, -4.2400053e-08, -8.940697e-08, 1.3309202, -1.0097256)
+inner_radius = 0.1198739
+outer_radius = 0.22379051
+sides = 22
+
+[node name="CSGTorus3D3" type="CSGTorus3D" parent="barrel/extra_stuff/min gun" unique_id=20393846]
+transform = Transform3D(0.97000015, 1.4210855e-14, 4.2351647e-22, 0, -4.2400053e-08, 0.97000015, 1.4210855e-14, -0.97000015, -4.2400053e-08, -6.3329935e-08, 1.3309202, -0.7195404)
+inner_radius = 0.1198739
+outer_radius = 0.22379051
+sides = 22
+
+[node name="CSGCylinder3D6" type="CSGCylinder3D" parent="barrel/extra_stuff/min gun" unique_id=290013659]
+transform = Transform3D(1.9106632e-15, 4.371136e-08, 1.000001, 1.000001, -4.3711445e-08, 0, 4.3711445e-08, 1.000001, -4.3711374e-08, -0.001810288, 1.1766824, -0.6978911)
+material_override = SubResource("StandardMaterial3D_el7wl")
+radius = 0.021972656
+height = 0.833
+
+[node name="CSGCylinder3D7" type="CSGCylinder3D" parent="barrel/extra_stuff/min gun" unique_id=85715340]
+transform = Transform3D(1.9106628e-15, 4.371136e-08, 1.000001, 1.000001, -4.3711445e-08, 0, 4.3711445e-08, 1.000001, -4.3711374e-08, -0.11640648, 1.221578, -0.69789135)
+material_override = SubResource("StandardMaterial3D_el7wl")
+radius = 0.021972656
+height = 0.833
+
+[node name="CSGCylinder3D8" type="CSGCylinder3D" parent="barrel/extra_stuff/min gun" unique_id=745713610]
+transform = Transform3D(1.9106626e-15, 4.371136e-08, 1.000001, 1.000001, -4.3711445e-08, 0, 4.3711445e-08, 1.000001, -4.3711374e-08, -0.11640649, 1.4836694, -0.6978914)
+material_override = SubResource("StandardMaterial3D_el7wl")
+radius = 0.021972656
+height = 0.833
+
+[node name="CSGCylinder3D9" type="CSGCylinder3D" parent="barrel/extra_stuff/min gun" unique_id=635148310]
+transform = Transform3D(1.9106622e-15, 4.371136e-08, 1.000001, 1.000001, -4.3711445e-08, 0, 4.3711445e-08, 1.000001, -4.3711374e-08, 0.13828461, 1.4475131, -0.6978916)
+material_override = SubResource("StandardMaterial3D_el7wl")
+radius = 0.021972656
+height = 0.833
+
+[node name="CSGCylinder3D10" type="CSGCylinder3D" parent="barrel/extra_stuff/min gun" unique_id=637039675]
+transform = Transform3D(1.9106613e-15, 4.371136e-08, 1.000001, 1.000001, -4.3711445e-08, 0, 4.3711445e-08, 1.000001, -4.3711374e-08, 0.11934814, 1.2366124, -0.6978919)
+material_override = SubResource("StandardMaterial3D_el7wl")
+radius = 0.021972656
+height = 0.833
+
+[node name="normal" type="Node3D" parent="barrel" unique_id=1427654967]
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="barrel/normal" unique_id=802884986]
+transform = Transform3D(1.910685e-15, 4.3711378e-08, 1, 0.99999994, -4.3711385e-08, 0, 4.371139e-08, 0.9999999, -4.371138e-08, 0.030990722, 1.3197198, -0.77676094)
 material_override = SubResource("StandardMaterial3D_el7wl")
 radius = 0.09667969
 height = 1.1960449
 
-[node name="CSGCylinder3D4" type="CSGCylinder3D" parent="barrel" unique_id=582032949]
-transform = Transform3D(1.9106853e-15, 4.371138e-08, 0.99999994, 0.9999999, -4.371138e-08, 0, 4.3711385e-08, 0.9999998, -4.3711385e-08, 0.02894745, 1.3197197, -1.2957428)
+[node name="CSGCylinder3D4" type="CSGCylinder3D" parent="barrel/normal" unique_id=582032949]
+transform = Transform3D(1.910685e-15, 4.3711378e-08, 1, 0.99999994, -4.3711385e-08, 0, 4.371139e-08, 0.9999999, -4.371138e-08, 0.028947452, 1.3197198, -1.2957429)
 material_override = SubResource("StandardMaterial3D_el7wl")
 radius = 0.047851563
 height = 0.256958
 
-[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="barrel" unique_id=579306762]
-transform = Transform3D(1.9106853e-15, 4.371138e-08, 0.99999994, 0.9999999, -4.371138e-08, 0, 4.3711385e-08, 0.9999998, -4.3711385e-08, 0.030990737, 1.3197197, -0.40163887)
+[node name="CSGCylinder3D5" type="CSGCylinder3D" parent="barrel/normal" unique_id=1307968028]
+transform = Transform3D(1.9106723e-15, 4.371136e-08, 1.000001, 1.000001, -4.3711445e-08, 0, 4.3711445e-08, 1.000001, -4.3711374e-08, 0.028947454, 1.3197199, -1.295743)
+material_override = SubResource("StandardMaterial3D_el7wl")
+radius = 0.047851563
+height = 0.256958
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="barrel/normal" unique_id=579306762]
+transform = Transform3D(1.910685e-15, 4.3711378e-08, 1, 0.99999994, -4.3711385e-08, 0, 4.371139e-08, 0.9999999, -4.371138e-08, 0.030990738, 1.3197198, -0.4016389)
 material_override = SubResource("StandardMaterial3D_el7wl")
 radius = 0.14257813
 height = 0.44580078
 
-[node name="CSGCylinder3D3" type="CSGCylinder3D" parent="barrel" unique_id=89779564]
-transform = Transform3D(1.9106853e-15, 4.371138e-08, 0.99999994, 0.9999999, -4.371138e-08, 0, 4.3711385e-08, 0.9999998, -4.3711385e-08, 0.03099074, 1.4259425, -0.30312812)
-material_override = SubResource("StandardMaterial3D_el7wl")
-radius = 0.09472656
-height = 0.2487793
-sides = 13
-
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="barrel" unique_id=1066465358]
-transform = Transform3D(0.08999886, -0.00022629336, -0.00039159312, 0.00022787967, 0.089998975, 0.00036451314, 0.00039067215, -0.00036550008, 0.08999841, 0.04556948, 1.4245539, -1.1137857)
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="barrel/normal" unique_id=1066465358]
+transform = Transform3D(0.08999887, -0.00022629337, -0.00039159317, 0.00022787969, 0.08999898, 0.00036451317, 0.00039067218, -0.0003655001, 0.08999842, 0.04556948, 1.4245539, -1.1137859)
 material_override = SubResource("StandardMaterial3D_el7wl")
 mesh = SubResource("BoxMesh_fowog")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1189448804]
 transform = Transform3D(0.23999695, -0.00060344674, -0.0010442493, 0.000607679, 0.23999725, 0.00097203365, 0.0010417922, -0.0009746667, 0.23999575, -0.011788905, 1.4749477, 0)
-material_override = SubResource("StandardMaterial3D_el7wl")
+material_override = SubResource("StandardMaterial3D_485p4")
 mesh = SubResource("BoxMesh_fowog")
 
 [node name="Timer" type="Timer" parent="." unique_id=471966124]
 wait_time = 0.101
+one_shot = true
 autostart = true
 
 [node name="Area3D" type="Area3D" parent="." unique_id=540852476 groups=["turret"]]
@@ -122,5 +334,8 @@ autostart = true
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=1486952820]
 transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, 0.52977276, 0)
 shape = SubResource("SphereShape3D_el7wl")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=2036658787]
+libraries/ = SubResource("AnimationLibrary_pp6j5")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

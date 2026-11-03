@@ -145,7 +145,7 @@ enemy_type = SubResource("Resource_18nlu")
 speed = 36.35
 
 [node name="enemy2" parent="Path3D" unique_id=2111689381 instance=ExtResource("2_7ykc4")]
-transform = Transform3D(0.999845, 0, 0.01586936, 0, 1, 0, -0.01586936, 0, 0.999845, 25.70135, 0, 10.197538)
+transform = Transform3D(0.99984473, 0, 0.015869355, 0, 1, 0, -0.015869355, 0, 0.99984473, 25.70135, 0, 10.197538)
 progress = 92.20013
 enemy_type = SubResource("Resource_c1pb6")
 speed = 36.35
@@ -157,13 +157,13 @@ enemy_type = SubResource("Resource_6wevv")
 speed = 36.35
 
 [node name="enemy4" parent="Path3D" unique_id=788466399 instance=ExtResource("2_7ykc4")]
-transform = Transform3D(0.0075371815, 0, 0.99993086, 0, 1, 0, -0.99993086, 0, 0.0075371815, 32.17329, 0, 25.624714)
+transform = Transform3D(0.007537179, 0, 0.99993056, 0, 1, 0, -0.99993056, 0, 0.007537179, 32.17329, 0, 25.624714)
 progress = 143.44475
 enemy_type = SubResource("Resource_e1cbu")
 speed = 36.35
 
 [node name="enemy5" parent="Path3D" unique_id=430166604 instance=ExtResource("2_7ykc4")]
-transform = Transform3D(0.00044172615, 0, 0.9999551, 0, 1, 0, -0.9999551, 0, 0.00044172615, -2.7812457, 0, -9.545196)
+transform = Transform3D(0.000441726, 0, 0.9999548, 0, 1, 0, -0.9999548, 0, 0.000441726, -2.7812457, 0, -9.545196)
 progress = 13.946575
 enemy_type = SubResource("Resource_mngbo")
 speed = 36.35
