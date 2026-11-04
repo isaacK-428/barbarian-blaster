@@ -5,3 +5,4 @@
 [resource]
 script = ExtResource("1_ocfjj")
 name = "miner"
+gold_cost = 40

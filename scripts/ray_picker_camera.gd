@@ -83,7 +83,11 @@ func _process(delta: float) -> void:
 				if grid_map.get_cell_item(cell)==0:
 					grid_map.set_cell_item(cell,1)
 					var tile_map_position = grid_map.map_to_local(cell)
-					turret_manager.spawn_turret(tile_map_position,new_turret)
+					var gold_cost = 67
+					gold_cost = new_turret.gold_cost    #   🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴
+					if Cheese.gold>=gold_cost:
+						turret_manager.spawn_turret(tile_map_position,new_turret)
+						Cheese.gold-=gold_cost
 		else:
 			Input.set_default_cursor_shape(Input.CURSOR_ARROW)
 		if collider.is_in_group("turret") and Input.is_action_just_pressed("mouse_click") and Cheese.in_upgrade==false:
@@ -109,6 +113,7 @@ func hide_upgrade_UI():
 			i.enable()
 		$up_grade_UI.hide()
 		current_turret.get_parent().upgrades = upgrades
+		current_turret.get_parent().hide_select()
 func button_actions(button):
 	#if you clikcon this before you clikc on any  turret instances are created it crashes
 	var resource_index = null

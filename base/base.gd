@@ -24,4 +24,4 @@ func _process(delta: float) -> void:
 func take_damage(amount):
 	current_health-=amount
 func die():
-	get_tree().reload_current_scene()
+	get_tree().change_scene_to_file("res://UI/you_died.tscn")

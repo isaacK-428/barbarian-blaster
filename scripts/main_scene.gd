@@ -36,7 +36,7 @@ func _on_enemy_spawn_timeout() -> void:
 	print("tokens === ",enemy_tokens)
 	$enemy_spawn.wait_time = timer_length
 	var E_I = enemy.instantiate()
-	$Path3D.add_child(E_I)
+	$Path3D.add_child(E_I)      # 🔴🔴🔴🔴🔴🔴🔴🔴🔴   
 	E_I.progress = 0.0
 	var index = randi_range(0,enemy_types.size()-1)
 	E_I.enemy_type = enemy_types[index]

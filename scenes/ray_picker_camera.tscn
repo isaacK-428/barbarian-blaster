@@ -82,6 +82,36 @@ visible = false
 pixel_size = 1.7732
 font_size = 50
 
+[node name="gold_cost" type="Label3D" parent="up_grade_UI" unique_id=981252609]
+transform = Transform3D(0.52, 0, -7.1054274e-15, 2.842171e-14, 0.004537821, 0.5199803, -7.1054274e-15, -0.5199803, 0.004537821, -52.549328, -6.8551426, -11.302415)
+pixel_size = 0.02
+billboard = 1
+text = "gold cost"
+
+[node name="gold_cost2" type="Label3D" parent="up_grade_UI" unique_id=1004678128]
+transform = Transform3D(0.52, 0, 0, 3.5527137e-14, 0.0045378357, 0.5199803, -1.0658141e-14, -0.5199803, 0.0045378357, -50.202816, -6.8551426, -11.302416)
+pixel_size = 0.02
+billboard = 1
+text = "gold cost"
+
+[node name="gold_cost3" type="Label3D" parent="up_grade_UI" unique_id=548047619]
+transform = Transform3D(0.52, 3.5527137e-15, 7.1054274e-15, 4.973799e-14, 0.0045378506, 0.5199803, -1.7763568e-14, -0.5199803, 0.0045378506, -47.794395, -6.8551416, -11.302416)
+pixel_size = 0.02
+billboard = 1
+text = "gold cost"
+
+[node name="gold_cost4" type="Label3D" parent="up_grade_UI" unique_id=2006243316]
+transform = Transform3D(0.52, 7.1054274e-15, 1.4210855e-14, 4.973799e-14, 0.0045378506, 0.5199803, -1.7763568e-14, -0.5199803, 0.0045378506, -45.313026, -6.8551407, -11.302416)
+pixel_size = 0.02
+billboard = 1
+text = "gold cost"
+
+[node name="gold_cost5" type="Label3D" parent="up_grade_UI" unique_id=1751484338]
+transform = Transform3D(0.52, 1.4210855e-14, 2.1316282e-14, 4.973799e-14, 0.0045378506, 0.5199803, -1.7763568e-14, -0.5199803, 0.0045378506, -42.90007, -6.85514, -11.302416)
+pixel_size = 0.02
+billboard = 1
+text = "gold cost"
+
 [node name="Node3D" type="Node3D" parent="." unique_id=101901183]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1576912195]

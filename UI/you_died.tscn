@@ -1,0 +1,58 @@
+[gd_scene format=3 uid="uid://xqgffpo7f0h0"]
+
+[ext_resource type="Script" uid="uid://b220v8iy50nl7" path="res://scripts/you_died.gd" id="1_fbb83"]
+
+[node name="You Died" type="Control" unique_id=1881002410]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_fbb83")
+
+[node name="Panel" type="Panel" parent="." unique_id=1142455874]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="restart" type="Button" parent="Panel" unique_id=917949104]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -168.0
+offset_top = 182.0
+offset_right = 177.0
+offset_bottom = 305.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 40
+text = "Restart"
+
+[node name="quit" type="Button" parent="Panel" unique_id=2138925843]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -75.0
+offset_top = 346.0
+offset_right = 103.0
+offset_bottom = 409.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 40
+text = "quit"
+
+[node name="Label" type="Label" parent="." unique_id=890142790]
+layout_mode = 0
+offset_left = 455.0
+offset_top = 71.0
+offset_right = 704.0
+offset_bottom = 126.0
+theme_override_font_sizes/font_size = 40
+text = "You suck bro"
+
+[connection signal="pressed" from="Panel/restart" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="Panel/quit" to="." method="_on_quit_pressed"]

@@ -19,6 +19,10 @@ config/icon="res://icon.svg"
 
 Cheese="*uid://cs1n17ee0pr77"
 
+[display]
+
+window/stretch/mode="canvas_items"
+
 [input]
 
 restart={

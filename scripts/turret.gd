@@ -59,9 +59,9 @@ func apply_upgrades(fire_rate: float,DMG: float,new_ability: int):
 	ability = new_ability
 	#print("damage ",damage,"  fire rate ", fire_rate," ability ",ability)
 func show_select():
-	pass
+	$CSGBox3D.show()
 func hide_select():
-	pass
+	$CSGBox3D.hide()
 func get_best_target():
 	var target: PathFollow3D = null
 	var best_progress = 0

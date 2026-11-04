@@ -7,3 +7,4 @@ script = ExtResource("1_chfgn")
 fire_rate = 0.9
 damage = 5.0
 name = "blaster"
+gold_cost = 30

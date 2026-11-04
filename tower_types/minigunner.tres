@@ -7,3 +7,4 @@ script = ExtResource("1_ii1k3")
 fire_rate = 0.4
 damage = 0.2
 name = "m "
+gold_cost = 50

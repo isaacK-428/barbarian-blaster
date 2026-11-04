@@ -11,3 +11,4 @@ enum abilities {
 @export var damage: float = 1.0
 @export var ability: abilities = abilities.ONE
 @export var name: String = ""
+@export var gold_cost: int = 5
