@@ -78,14 +78,14 @@ func _process(delta: float) -> void:
 		if collider is GridMap:
 			Input.set_default_cursor_shape(Input.CURSOR_POINTING_HAND)
 			if Input.is_action_pressed("mouse_click"):
-				var collission_point = ray_cast_3d.get_collision_point() 
-				var cell = grid_map.local_to_map(collission_point )
-				if grid_map.get_cell_item(cell)==0:
-					grid_map.set_cell_item(cell,1)
-					var tile_map_position = grid_map.map_to_local(cell)
-					var gold_cost = 67
-					gold_cost = new_turret.gold_cost    #   🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴
-					if Cheese.gold>=gold_cost:
+				var gold_cost = 67
+				gold_cost = new_turret.gold_cost 
+				if Cheese.gold>=gold_cost:
+					var collission_point = ray_cast_3d.get_collision_point() 
+					var cell = grid_map.local_to_map(collission_point )
+					if grid_map.get_cell_item(cell)==0:
+						grid_map.set_cell_item(cell,1)
+						var tile_map_position = grid_map.map_to_local(cell)
 						turret_manager.spawn_turret(tile_map_position,new_turret)
 						Cheese.gold-=gold_cost
 		else:

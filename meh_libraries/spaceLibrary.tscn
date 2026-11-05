@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://corshpxbnmt2l"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ckvdt"]
+albedo_color = Color(5.968213e-06, 0.60825604, 0, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_ckvdt"]
 material = SubResource("StandardMaterial3D_ckvdt")
@@ -10,7 +11,7 @@ size = Vector3(4, 0.1, 4)
 data = PackedVector3Array(-2, 0.049999997, 2, 2, 0.049999997, 2, -2, -0.049999997, 2, 2, 0.049999997, 2, 2, -0.049999997, 2, -2, -0.049999997, 2, 2, 0.049999997, -2, -2, 0.049999997, -2, 2, -0.049999997, -2, -2, 0.049999997, -2, -2, -0.049999997, -2, 2, -0.049999997, -2, 2, 0.049999997, 2, 2, 0.049999997, -2, 2, -0.049999997, 2, 2, 0.049999997, -2, 2, -0.049999997, -2, 2, -0.049999997, 2, -2, 0.049999997, -2, -2, 0.049999997, 2, -2, -0.049999997, -2, -2, 0.049999997, 2, -2, -0.049999997, 2, -2, -0.049999997, -2, 2, 0.049999997, 2, -2, 0.049999997, 2, 2, 0.049999997, -2, -2, 0.049999997, 2, -2, 0.049999997, -2, 2, 0.049999997, -2, -2, -0.049999997, 2, 2, -0.049999997, 2, -2, -0.049999997, -2, 2, -0.049999997, 2, 2, -0.049999997, -2, -2, -0.049999997, -2)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vxbi0"]
-albedo_color = Color(1, 0, 1, 1)
+albedo_color = Color(0, 0.43251428, 0.23100966, 0.5686275)
 
 [sub_resource type="BoxMesh" id="BoxMesh_rk5nu"]
 material = SubResource("StandardMaterial3D_vxbi0")

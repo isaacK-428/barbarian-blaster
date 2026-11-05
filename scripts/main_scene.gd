@@ -15,7 +15,7 @@ var enemy_types = [
 	#20,30,50,90,130
 #]
 var wave_total_costs = [
-	5,10,15
+	5,10,15,40,100,130,200,280
 ]
 var enemy_costs = [
 	10,
