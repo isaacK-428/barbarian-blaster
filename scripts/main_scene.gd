@@ -24,7 +24,8 @@ var enemy_costs = [
 ]
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	var x = log(2.718)
+	print(x)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -35,11 +36,11 @@ func _process(delta: float) -> void:
 func _on_enemy_spawn_timeout() -> void:
 	print("tokens === ",enemy_tokens)
 	$enemy_spawn.wait_time = timer_length
-	var E_I = enemy.instantiate()
-	$Path3D.add_child(E_I)      # 🔴🔴🔴🔴🔴🔴🔴🔴🔴   
+	var E_I = enemy.instantiate()    
 	E_I.progress = 0.0
 	var index = randi_range(0,enemy_types.size()-1)
 	E_I.enemy_type = enemy_types[index]
+	$Path3D.add_child(E_I) 
 	var enemy_cost = enemy_costs[index]
 	enemy_tokens-=enemy_cost
 	if enemy_tokens<0:
@@ -63,9 +64,9 @@ func wave_over():
 		1:
 			change_wave_values([preload("res://fast_enemy.tres")],[])
 		2:
-			change_wave_values([preload("res://fast_enemy.tres"),preload("res://tank_enemy.tres")],[preload("res://base_enemy.tres")])
+			change_wave_values([preload("res://tank_enemy.tres")],[preload("res://base_enemy.tres")])
 		3:
-			change_wave_values([preload("res://tank_enemy.tres")],[])
+			change_wave_values([preload("res://tank_enemy.tres")],[preload("res://fast_enemy.tres")])
 		4:
 			change_wave_values([],[])
 	$enemy_spawn.start()

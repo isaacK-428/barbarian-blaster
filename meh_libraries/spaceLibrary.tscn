@@ -1,5 +1,7 @@
 [gd_scene format=3 uid="uid://corshpxbnmt2l"]
 
+[ext_resource type="PackedScene" uid="uid://cp1bogt5adu1m" path="res://meh_libraries/rock.tscn" id="1_vxbi0"]
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ckvdt"]
 albedo_color = Color(5.968213e-06, 0.60825604, 0, 1)
 
@@ -40,3 +42,6 @@ mesh = SubResource("BoxMesh_rk5nu")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D2/StaticBody3D" unique_id=66619255]
 shape = SubResource("ConcavePolygonShape3D_uitk4")
+
+[node name="rock" parent="." unique_id=1167863860 instance=ExtResource("1_vxbi0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.48504835, 0)

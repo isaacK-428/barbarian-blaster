@@ -4,3 +4,5 @@
 
 [node name="cheese" type="Node" unique_id=1352384911]
 script = ExtResource("1_6ih6m")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=2105574864]

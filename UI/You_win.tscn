@@ -1,0 +1,64 @@
+[gd_scene format=3 uid="uid://bw7wnq35s41cu"]
+
+[ext_resource type="Script" uid="uid://b220v8iy50nl7" path="res://scripts/you_died.gd" id="1_ln4pj"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ln4pj"]
+bg_color = Color(0.6, 0.050980393, 0.6, 1)
+
+[node name="You Died" type="Control" unique_id=1881002410]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ln4pj")
+
+[node name="Panel" type="Panel" parent="." unique_id=1142455874]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ln4pj")
+
+[node name="restart" type="Button" parent="Panel" unique_id=917949104]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -168.0
+offset_top = 182.0
+offset_right = 177.0
+offset_bottom = 305.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 40
+text = "Restart"
+
+[node name="quit" type="Button" parent="Panel" unique_id=2138925843]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -75.0
+offset_top = 346.0
+offset_right = 103.0
+offset_bottom = 409.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 40
+text = "quit"
+
+[node name="Label" type="Label" parent="." unique_id=890142790]
+layout_mode = 0
+offset_left = 488.0
+offset_top = 71.0
+offset_right = 737.0
+offset_bottom = 126.0
+theme_override_font_sizes/font_size = 40
+text = "You win"
+
+[node name="Polygon2D" type="Polygon2D" parent="." unique_id=1457175342]
+
+[connection signal="pressed" from="Panel/restart" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="Panel/quit" to="." method="_on_quit_pressed"]
