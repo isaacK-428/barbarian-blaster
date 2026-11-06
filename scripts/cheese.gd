@@ -1,6 +1,6 @@
 extends Node
 var in_upgrade = false
-var gold: int = 15000
+var gold: int = 10
 @onready var music_player: AudioStreamPlayer = $AudioStreamPlayer
 
 #func set_turret(node: Node3D):

@@ -6,3 +6,4 @@
 script = ExtResource("1_1b6u3")
 fire_rate = 0.8
 name = "base tower"
+gold_cost = 10

@@ -1,4 +1,4 @@
-[gd_resource type="Resource" format=3 uid="uid://lwmt1kabhvr8"]
+[gd_resource type="Resource" script_class="enemy" format=3 uid="uid://lwmt1kabhvr8"]
 
 [ext_resource type="Script" uid="uid://djnaialfas3qu" path="res://scripts/new_gd_script.gd" id="1_bkac0"]
 
@@ -6,4 +6,5 @@
 resource_local_to_scene = true
 script = ExtResource("1_bkac0")
 speed = 7
-health = 6
+health = 10
+damage = 1.0

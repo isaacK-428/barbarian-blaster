@@ -9,9 +9,9 @@ var fire_rate = null
 var damage = null
 var ability = null
 var upgrade_gold_costs = [
-	[0,5,10,25],
-	[0,5,20,35],
-	[0,5,15,30]
+	[0,7,10,25,""],
+	[0,5,20,35,""],
+	[0,5,15,30,""]
 ]
 var actual_upgrades = [
 	[[0.2,0.2,0.2],  #base tower
@@ -105,6 +105,9 @@ func show_upgrade_UI():
 	$up_grade_UI.show()
 	for i in get_tree().get_nodes_in_group("button"):
 		i.enable()
+	$"up_grade_UI/gold damage".text = str(upgrade_gold_costs[0][upgrades[0] + 1])
+	$"up_grade_UI/gold  fire rate".text = str(upgrade_gold_costs[1][upgrades[1] + 1])
+	
 func hide_upgrade_UI(): 
 	if current_turret!=null:
 		current_turret.get_parent().show_select()
@@ -172,6 +175,8 @@ func button_actions(button):
 		print(fire_rate)
 		print(current_turret)
 		current_turret.get_parent().apply_upgrades(fire_rate, damage, ability)
+		$"up_grade_UI/gold damage".text = str(upgrade_gold_costs[0][upgrades[0] + 1])
+		$"up_grade_UI/gold  fire rate".text = str(upgrade_gold_costs[1][upgrades[1] + 1])
 		
 		# Fixed loop: use range() and correct index offsetting
 		for i in range(upgrade_panels.size()):

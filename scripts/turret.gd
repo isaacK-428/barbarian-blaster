@@ -21,6 +21,10 @@ func _ready() -> void:
 	match turret_type.name:
 		"sniper":
 			$barrel/extra_stuff/sniper.show()
+		"blaster":
+			$barrel/extra_stuff/blaster.show()
+		"miner":
+			$barrel/normal.hide()
 	if turret_type == load("res://tower_types/minigunner.tres"):
 		$barrel/normal.hide()
 		$"barrel/extra_stuff/min gun".show()

@@ -5,7 +5,5 @@
 [resource]
 resource_local_to_scene = true
 script = ExtResource("1_58yxh")
-speed = 5
-health = 75
-damage = 4
-gold = 10
+health = 40
+gold = 25

@@ -17,4 +17,4 @@ func _on_restart_pressed() -> void:
 
 
 func _on_quit_pressed() -> void:
-	get_tree().change_scene_to_packed(main_menu)
+	get_tree().change_scene_to_packed(main_menu )

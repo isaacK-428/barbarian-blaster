@@ -5,7 +5,7 @@
 [resource]
 resource_local_to_scene = true
 script = ExtResource("1_jdumx")
-speed = 3
-health = 50
-damage = 3
-gold = 10
+speed = 6
+health = 60
+damage = 2
+gold = 35

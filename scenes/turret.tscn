@@ -25,6 +25,12 @@ albedo_color = Color(1, 0, 0, 1)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mqfwu"]
 albedo_color = Color(1, 0, 0, 1)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tg0ex"]
+albedo_color = Color(1, 0, 0, 1)
+metallic = 0.41
+backlight_enabled = true
+backlight = Color(1, 1, 1, 1)
+
 [sub_resource type="BoxMesh" id="BoxMesh_fowog"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_485p4"]
@@ -290,6 +296,33 @@ transform = Transform3D(1.9106613e-15, 4.371136e-08, 1.000001, 1.000001, -4.3711
 material_override = SubResource("StandardMaterial3D_el7wl")
 radius = 0.021972656
 height = 0.833
+
+[node name="blaster" type="Node3D" parent="barrel/extra_stuff" unique_id=661126249]
+visible = false
+
+[node name="CSGCylinder3D3" type="CSGCylinder3D" parent="barrel/extra_stuff/blaster" unique_id=1162039670]
+transform = Transform3D(1.910686e-15, 4.3711424e-08, 1.000001, 1.000001, -4.3711445e-08, 0, 4.3711445e-08, 1.000001, -4.3711438e-08, 0.030990731, 1.3197201, -0.7767611)
+material_override = SubResource("StandardMaterial3D_el7wl")
+radius = 0.1899414
+height = 1.1960449
+
+[node name="CSGCylinder3D4" type="CSGCylinder3D" parent="barrel/extra_stuff/blaster" unique_id=1906489966]
+transform = Transform3D(-4.3711445e-08, -1.000001, 0, 1.000001, -4.3711445e-08, 0, 4.2351647e-22, 0, 1.000001, 0.030990684, 1.319721, -0.8967386)
+material_override = SubResource("StandardMaterial3D_tg0ex")
+radius = 0.08300781
+height = 0.39666748
+
+[node name="CSGCylinder3D5" type="CSGCylinder3D" parent="barrel/extra_stuff/blaster" unique_id=908387580]
+transform = Transform3D(-4.3711445e-08, -1.000001, 0, 1.000001, -4.3711445e-08, 0, 4.2351647e-22, 0, 1.000001, 0.030990655, 1.3197211, -1.1069474)
+material_override = SubResource("StandardMaterial3D_tg0ex")
+radius = 0.08300781
+height = 0.39666748
+
+[node name="CSGCylinder3D6" type="CSGCylinder3D" parent="barrel/extra_stuff/blaster" unique_id=1050386]
+transform = Transform3D(-4.3711445e-08, -1.000001, 0, 1.000001, -4.3711445e-08, 0, 4.2351647e-22, 0, 1.000001, 0.030990724, 1.3197212, -0.66389436)
+material_override = SubResource("StandardMaterial3D_tg0ex")
+radius = 0.08300781
+height = 0.39666748
 
 [node name="normal" type="Node3D" parent="barrel" unique_id=1427654967]
 

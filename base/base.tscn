@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://bspec4cu5ji0n" path="res://base/base.gd" id="1_mftly"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mftly"]
-albedo_color = Color(0, 0.4745098, 0, 1)
+albedo_color = Color(0.36616847, 0.18996686, 0, 1)
 
 [node name="base" type="Node3D" unique_id=2070879093 groups=["base"]]
 script = ExtResource("1_mftly")
@@ -50,7 +50,7 @@ sides = 32
 material = SubResource("StandardMaterial3D_mftly")
 
 [node name="Label3D" type="Label3D" parent="." unique_id=426532770]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8, -3)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8, -2.987393)
 billboard = 1
 modulate = Color(0, 0, 0, 1)
 text = "Starting Health"
