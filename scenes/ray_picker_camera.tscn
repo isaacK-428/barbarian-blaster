@@ -4,6 +4,25 @@
 [ext_resource type="PackedScene" uid="uid://0ujdds1c3i1" path="res://scenes/button.tscn" id="2_yjt0p"]
 [ext_resource type="PackedScene" uid="uid://chxfjmishtit5" path="res://scenes/upgrade_panel_thing.tscn" id="3_pjwn7"]
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_jy3mm"]
+size = Vector3(38.33629, 35.41272, 1)
+
+[sub_resource type="Gradient" id="Gradient_fhtue"]
+colors = PackedColorArray(1, 0, 0.85882354, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_e5346"]
+gradient = SubResource("Gradient_fhtue")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gq0ru"]
+albedo_color = Color(0.53333336, 1, 1, 1)
+metallic = 1.0
+metallic_specular = 1.0
+metallic_texture = SubResource("GradientTexture2D_e5346")
+
+[sub_resource type="BoxMesh" id="BoxMesh_fhtue"]
+material = SubResource("StandardMaterial3D_gq0ru")
+size = Vector3(47.98, 44.82, 1)
+
 [sub_resource type="BoxMesh" id="BoxMesh_pjwn7"]
 size = Vector3(12.59, 2.83, 1.29)
 
@@ -31,7 +50,7 @@ transform = Transform3D(182.46, 0, 0, 0, 182.46, 0, 0, 0, 182.46, 0, 0, 0)
 collide_with_areas = true
 
 [node name="up_grade_UI" type="Node3D" parent="." unique_id=1248385027]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 47.6, 0, 0)
+transform = Transform3D(1, 0, -7.1054274e-15, 0, 1, 0, 0, 0, 1, 535.6, 8.42031e-05, -1.3788783e-05)
 
 [node name="button" parent="up_grade_UI" unique_id=294777311 instance=ExtResource("2_yjt0p")]
 transform = Transform3D(1, 6.3948846e-14, 7.1054274e-14, 0, 0.08367795, 0.9964929, 0, -0.9964929, 0.08367795, 2.8062668, 1.9927619, -8.5529585)
@@ -95,6 +114,16 @@ pixel_size = 0.07
 text = "10 gold"
 font_size = 15
 outline_size = 6
+
+[node name="StaticBody3D" type="StaticBody3D" parent="up_grade_UI" unique_id=1177775375]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="up_grade_UI/StaticBody3D" unique_id=95160056]
+transform = Transform3D(1, 0, -1.7550406e-12, 0, 1, 0, 0, 0, 1, -1.3443985, -3.3770995, -11.359609)
+shape = SubResource("BoxShape3D_jy3mm")
+
+[node name="CSGMesh3D" type="CSGMesh3D" parent="up_grade_UI/StaticBody3D/CollisionShape3D" unique_id=759440463]
+transform = Transform3D(1, -1.4210855e-14, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("BoxMesh_fhtue")
 
 [node name="Node3D" type="Node3D" parent="." unique_id=101901183]
 
@@ -163,28 +192,28 @@ shape = SubResource("BoxShape3D_pjwn7")
 transform = Transform3D(0.52, -1.0658141e-14, -7.1054274e-15, 3.5527137e-14, 0.0045378357, 0.5199803, -1.0658141e-14, -0.5199803, 0.0045378357, -4.9493294, -1.092659, 0.69759846)
 pixel_size = 0.02
 billboard = 1
-text = "gold cost"
+text = "10"
 
 [node name="gold_cost2" type="Label3D" parent="MeshInstance3D" unique_id=1004678128]
 transform = Transform3D(0.52, -3.5527137e-15, 0, 4.973799e-14, 0.0045378506, 0.5199803, -1.7763568e-14, -0.5199803, 0.0045378506, -2.6028175, -1.092659, 0.69759846)
 pixel_size = 0.02
 billboard = 1
-text = "gold cost"
+text = "15"
 
 [node name="gold_cost3" type="Label3D" parent="MeshInstance3D" unique_id=548047619]
 transform = Transform3D(0.52, 0, 7.1054274e-15, 4.973799e-14, 0.0045378506, 0.5199803, -1.7763568e-14, -0.5199803, 0.0045378506, -0.194397, -1.092658, 0.69759846)
 pixel_size = 0.02
 billboard = 1
-text = "gold cost"
+text = "20"
 
 [node name="gold_cost4" type="Label3D" parent="MeshInstance3D" unique_id=2006243316]
 transform = Transform3D(0.52, 3.5527137e-15, 1.4210855e-14, 4.973799e-14, 0.0045378506, 0.5199803, -1.7763568e-14, -0.5199803, 0.0045378506, 2.286972, -1.0926571, 0.69759846)
 pixel_size = 0.02
 billboard = 1
-text = "gold cost"
+text = "40"
 
 [node name="gold_cost5" type="Label3D" parent="MeshInstance3D" unique_id=1751484338]
 transform = Transform3D(0.52, 1.0658141e-14, 2.1316282e-14, 4.973799e-14, 0.0045378506, 0.5199803, -1.7763568e-14, -0.5199803, 0.0045378506, 4.6999283, -1.0926566, 0.69759846)
 pixel_size = 0.02
 billboard = 1
-text = "gold cost"
+text = "30"

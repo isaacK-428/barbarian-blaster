@@ -14,25 +14,26 @@ var upgrade_gold_costs = [
 	[0,5,15,30,""]
 ]
 var actual_upgrades = [
-	[[0.2,0.2,0.2],  #base tower
-	[1,1,1],
+	
+	[[0.2,0.1,0.1],  #base tower
+	[1,1.5,2],
 	[1,1,1],]
 	,
-	[[0.2,0.2,0.2],      #blaster
-	[1,1,1],
+	[[0.1,0.1,0.2],      #blaster
+	[0.5,1,2],
 	[1,1,1],]
 	,
 	[[0.2,0.2,0.2],    #miner
 	[1,1,1],
 	[1,1,1],]
 	,
-	[[0.2,0.2,0.2],     #mini gunner
-	[1,1,1],
+	[[0.05,0.05,0.05],     #mini gunner
+	[0.1,0.1,0.11],
 	[1,1,1],]
 	,
 	[[0.2,0.2,0.2],    #sniper
-	[1,1,1], 
-	[1,1,1],]
+	[1,1.5,2], 
+	[1,1,1]]
 	,
 ]
 var turret_gold_costs = [
@@ -105,8 +106,8 @@ func show_upgrade_UI():
 	$up_grade_UI.show()
 	for i in get_tree().get_nodes_in_group("button"):
 		i.enable()
-	$"up_grade_UI/gold damage".text = str(upgrade_gold_costs[0][upgrades[0] + 1])
-	$"up_grade_UI/gold  fire rate".text = str(upgrade_gold_costs[1][upgrades[1] + 1])
+	$"up_grade_UI/gold damage".text = str(upgrade_gold_costs[0][upgrades[0] + 1])+str("💲")
+	$"up_grade_UI/gold  fire rate".text = str(upgrade_gold_costs[1][upgrades[1] + 1])+str("💲")
 	
 func hide_upgrade_UI(): 
 	if current_turret!=null:
@@ -175,8 +176,8 @@ func button_actions(button):
 		print(fire_rate)
 		print(current_turret)
 		current_turret.get_parent().apply_upgrades(fire_rate, damage, ability)
-		$"up_grade_UI/gold damage".text = str(upgrade_gold_costs[0][upgrades[0] + 1])
-		$"up_grade_UI/gold  fire rate".text = str(upgrade_gold_costs[1][upgrades[1] + 1])
+		$"up_grade_UI/gold damage".text = str(upgrade_gold_costs[0][upgrades[0] + 1])+str("💲")
+		$"up_grade_UI/gold  fire rate".text = str(upgrade_gold_costs[1][upgrades[1] + 1])+str("💲")
 		
 		# Fixed loop: use range() and correct index offsetting
 		for i in range(upgrade_panels.size()):
@@ -205,4 +206,6 @@ func set_turret(collider):
 	$up_grade_UI/button2/Label3D2.text = str(fire_rate)
 	$up_grade_UI/button/Label3D.text = str(damage)
 	$up_grade_UI/button3/Label3D3	.text = str(ability)
+	if current_turret.get_parent().turret_type==load("res://tower_types/miner.tres"):
+		hide_upgrade_UI()
 		

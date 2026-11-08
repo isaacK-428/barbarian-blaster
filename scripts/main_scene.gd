@@ -15,12 +15,25 @@ var enemy_types = [
 	#20,30,50,90,130
 #]
 var wave_total_costs = [
-	5,10,15,40,100,130,200,280
+	7,10,15,40,100,130,140,280
+]
+var all_enemys = [
+	preload("res://base_enemy.tres"),
+	preload("res://fast_enemy.tres"),
+	preload("res://tank_enemy.tres"),
+	preload("res://tank2.tres"),
+	preload("res://boss_enemy.tres"),
+	preload("res://demon_enemy.tres"),
+	preload("res://demon_2_enemy.tres")
 ]
 var enemy_costs = [
 	10,
 	5,
-	15
+	15,
+	25,
+	40,
+	45,
+	60
 ]
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -39,9 +52,11 @@ func _on_enemy_spawn_timeout() -> void:
 	var E_I = enemy.instantiate()    
 	E_I.progress = 0.0
 	var index = randi_range(0,enemy_types.size()-1)
+	var new_index = all_enemys.find(enemy_types[index])
+	
 	E_I.enemy_type = enemy_types[index]
 	$Path3D.add_child(E_I) 
-	var enemy_cost = enemy_costs[index]
+	var enemy_cost = enemy_costs[new_index]
 	enemy_tokens-=enemy_cost
 	if enemy_tokens<0:
 		wave_over()
@@ -62,13 +77,27 @@ func wave_over():
 	print("lets go")
 	match wave:
 		1:
-			change_wave_values([preload("res://fast_enemy.tres")],[])
+			change_wave_values([preload("res://fast_enemy.tres"),preload("res://fast_enemy.tres")],[])
 		2:
-			change_wave_values([preload("res://tank_enemy.tres")],[preload("res://base_enemy.tres")])
+			change_wave_values([preload("res://tank_enemy.tres"),preload("res://tank_enemy.tres")],[preload("res://fast_enemy.tres")])
 		3:
-			change_wave_values([preload("res://tank_enemy.tres")],[preload("res://fast_enemy.tres")])
+			change_wave_values([preload("res://tank_enemy.tres"),preload("res://boss_enemy.tres")],[preload("res://fast_enemy.tres"),preload("res://fast_enemy.tres")])
 		4:
-			change_wave_values([],[])
+			change_wave_values([preload("res://boss_enemy.tres"),preload("res://fast_enemy.tres"),preload("res://boss_enemy.tres"),preload("res://tank2.tres")],[preload("res://tank_enemy.tres")])
+		5:
+			change_wave_values([preload("res://demon_enemy.tres")],[preload("res://boss_enemy.tres"),preload("res://base_enemy.tres")])
+		6:
+			change_wave_values([preload("res://boss_enemy.tres")],[preload("res://fast_enemy.tres")])
+		7:
+			pass
+		8:
+			pass
+		9:
+			pass
+		10:
+			pass
+		11:
+			get_tree().change_scene_to_file("res://UI/You_win.tscn")
 	$enemy_spawn.start()
 	print("enemy types     -  - - - - - - - -         ",enemy_types)
 func change_wave_values(adds: Array,subtracts: Array):

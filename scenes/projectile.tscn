@@ -24,4 +24,5 @@ mesh = SubResource("SphereMesh_q3m7n")
 material_override = SubResource("StandardMaterial3D_c8fcr")
 mesh = SubResource("SphereMesh_q3m7n")
 
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

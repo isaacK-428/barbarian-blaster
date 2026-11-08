@@ -11,9 +11,11 @@ var look_enemy = null
 var fire_rate = 0.9
 var damage = 1
 var ability = 1
-
+var miner = preload("res://tower_types/miner.tres")
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	if enemy_type!=load("res://tower_types/miner.tres"):
+		$Timer2.queue_free()
 	fire_rate = turret_type.fire_rate
 	damage = turret_type.damage
 	print("turret type   ",turret_type)
@@ -36,27 +38,31 @@ func _physics_process(delta: float) -> void:
 		look_enemy = enemy
 		if enemy!=null:
 			look_at(enemy.global_position,Vector3.UP,true)
+			
 
 		
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
 func shoot():
-	$AnimationPlayer.stop()
-	$AnimationPlayer.play("fire")
-	if enemy_path.get_children().size()!=0:
-		var shot = bullet.instantiate()
-		add_child(shot)
-		shot.target = look_enemy
-		shot.global_position = turret_top.global_position
-		shot.direction = global_transform.basis.z
-		shot.damage=damage
-		$Timer.wait_time = fire_rate
-		$Timer.start()
+	if current_turret!=miner:
+		$AnimationPlayer.stop()
+		$AnimationPlayer.play("fire")
+		if enemy_path.get_children().size()!=0:
+			var shot = bullet.instantiate()
+			add_child(shot)
+			shot.target = look_enemy
+			shot.global_position = turret_top.global_position
+			shot.direction = global_transform.basis.z
+			shot.damage=damage
+			$Timer.wait_time = fire_rate
+	$Timer.start()
+	
 
 
 func _on_timer_timeout() -> void:
-	shoot()
+	if turret_type!=miner:
+		shoot()
 func apply_upgrades(fire_rate: float,DMG: float,new_ability: int):
 	$Timer.wait_time = fire_rate
 	damage=DMG
@@ -75,3 +81,8 @@ func get_best_target():
 				best_progress = enemy.progress
 				target = enemy
 	return target
+
+
+func _on_timer_2_timeout() -> void:
+	Cheese.gold+=1
+	print("miner set gold")
