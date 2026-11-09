@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://tsykvxrv4eq8" path="res://scripts/ray_picker_camera.gd" id="1_kikph"]
 [ext_resource type="PackedScene" uid="uid://0ujdds1c3i1" path="res://scenes/button.tscn" id="2_yjt0p"]
 [ext_resource type="PackedScene" uid="uid://chxfjmishtit5" path="res://scenes/upgrade_panel_thing.tscn" id="3_pjwn7"]
+[ext_resource type="AudioStream" uid="uid://bnprxl6g2s2sg" path="res://sound/249300__suntemple__access-denied.wav" id="4_jy3mm"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_jy3mm"]
 size = Vector3(38.33629, 35.41272, 1)
@@ -217,3 +218,6 @@ transform = Transform3D(0.52, 1.0658141e-14, 2.1316282e-14, 4.973799e-14, 0.0045
 pixel_size = 0.02
 billboard = 1
 text = "30"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1349775885]
+stream = ExtResource("4_jy3mm")

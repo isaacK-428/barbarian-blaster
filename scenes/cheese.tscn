@@ -1,8 +1,10 @@
 [gd_scene format=3 uid="uid://cs1n17ee0pr77"]
 
 [ext_resource type="Script" uid="uid://bmsv7r7dlghyx" path="res://scripts/cheese.gd" id="1_6ih6m"]
+[ext_resource type="AudioStream" uid="uid://0uwtpqkh6hgy" path="res://sound/spicy peppers.mp3" id="2_gv6i6"]
 
 [node name="cheese" type="Node" unique_id=1352384911]
 script = ExtResource("1_6ih6m")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=2105574864]
+stream = ExtResource("2_gv6i6")

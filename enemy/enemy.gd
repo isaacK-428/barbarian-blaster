@@ -10,7 +10,7 @@ func _ready() -> void:
 	#progress = 0.0
 	#enemy_type = enemy_types.pick_random()
 	speed = enemy_type.speed
-	$StaticBody3D.max_health = enemy_type.health*1.5
+	$StaticBody3D.max_health = enemy_type.health*1.2
 	$StaticBody3D.health = $StaticBody3D.max_health
 	if get_tree().get_nodes_in_group("enemy").size()>=0:                                                                   
 		for turret in get_tree().get_nodes_in_group("actual_turret"):

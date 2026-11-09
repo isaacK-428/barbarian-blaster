@@ -10,6 +10,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 func clicked():
+	$AudioStreamPlayer.play()
 	print("random button was clicked")
 	emit_signal("button_pressed")
 	button_actions(index)

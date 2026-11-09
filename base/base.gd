@@ -23,5 +23,6 @@ func _process(delta: float) -> void:
 		get_tree().reload_current_scene()
 func take_damage(amount):
 	current_health-=amount
+	$AudioStreamPlayer.play()
 func die():
 	get_tree().change_scene_to_file("res://UI/you_died.tscn")

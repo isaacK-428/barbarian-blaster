@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://bbdejv6n7qll" path="res://scripts/turret.gd" id="1_el7wl"]
 [ext_resource type="PackedScene" uid="uid://b4kl4iyg6w4ym" path="res://scenes/projectile.tscn" id="2_485p4"]
 [ext_resource type="Resource" uid="uid://u6hwuqm4p66q" path="res://tower_types/base_tower.tres" id="3_485p4"]
+[ext_resource type="AudioStream" uid="uid://bidk6lbxpws38" path="res://sound/new place tower SFX.wav" id="4_pp6j5"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_el7wl"]
 albedo_color = Color(0, 0, 0, 1)
@@ -382,6 +383,9 @@ material = SubResource("StandardMaterial3D_0dv4j")
 
 [node name="Timer2" type="Timer" parent="." unique_id=1931708092]
 autostart = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1698524489]
+stream = ExtResource("4_pp6j5")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="Timer2" to="." method="_on_timer_2_timeout"]

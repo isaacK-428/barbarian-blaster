@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://c5qmq4sdugotw"]
 
 [ext_resource type="Script" uid="uid://bspec4cu5ji0n" path="res://base/base.gd" id="1_mftly"]
+[ext_resource type="AudioStream" uid="uid://w3gtdt08ev2u" path="res://sound/hurt base.wav" id="2_m7viw"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mftly"]
 albedo_color = Color(0.36616847, 0.18996686, 0, 1)
@@ -83,3 +84,6 @@ material = SubResource("StandardMaterial3D_mftly")
 transform = Transform3D(0.9999664, 0, -0.008202955, 0, 1, 0, 0.008202955, 0, 0.9999664, 0.04403472, 6.2853675, -2.4963946)
 size = Vector3(1, 1.6348267, 1)
 material = SubResource("StandardMaterial3D_mftly")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1125760080]
+stream = ExtResource("2_m7viw")

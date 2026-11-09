@@ -6,6 +6,7 @@ var enemy = preload("res://enemy/enemy.tscn")
 @export var big_number = 100
 var enemy_tokens = 20
 var wave = 1
+var wait = false
 var time_passed = 0
 var enemy_types = [
 	preload("res://base_enemy.tres")	
@@ -15,7 +16,7 @@ var enemy_types = [
 	#20,30,50,90,130
 #]
 var wave_total_costs = [
-	7,10,15,40,100,130,140,280
+	7,10,15,40,100,130,140,400,500
 ]
 var all_enemys = [
 	preload("res://base_enemy.tres"),
@@ -24,7 +25,8 @@ var all_enemys = [
 	preload("res://tank2.tres"),
 	preload("res://boss_enemy.tres"),
 	preload("res://demon_enemy.tres"),
-	preload("res://demon_2_enemy.tres")
+	preload("res://demon_2_enemy.tres"),
+	preload("res://the_final_man.tres")
 ]
 var enemy_costs = [
 	10,
@@ -33,7 +35,9 @@ var enemy_costs = [
 	25,
 	40,
 	45,
-	60
+	60,
+	100,
+	100
 ]
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -44,24 +48,28 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	$Label3D.text = str(Cheese.gold)
+	if wait == true:
+		if get_tree().get_nodes_in_group("enemy"):
+			get_tree().change_scene_to_file("res://UI/You_win.tscn")
 
 
 func _on_enemy_spawn_timeout() -> void:
-	print("tokens === ",enemy_tokens)
-	$enemy_spawn.wait_time = timer_length
-	var E_I = enemy.instantiate()    
-	E_I.progress = 0.0
-	var index = randi_range(0,enemy_types.size()-1)
-	var new_index = all_enemys.find(enemy_types[index])
-	
-	E_I.enemy_type = enemy_types[index]
-	$Path3D.add_child(E_I) 
-	var enemy_cost = enemy_costs[new_index]
-	enemy_tokens-=enemy_cost
-	if enemy_tokens<0:
-		wave_over()
-		return
-	$enemy_spawn.start()
+	if enemy_types.size()>0:
+		print("tokens === ",enemy_tokens)
+		$enemy_spawn.wait_time = timer_length
+		var E_I = enemy.instantiate()    
+		E_I.progress = 0.0
+		var index = randi_range(0,enemy_types.size()-1)
+		var new_index = all_enemys.find(enemy_types[index])
+		
+		E_I.enemy_type = enemy_types[index]
+		$Path3D.add_child(E_I) 
+		var enemy_cost = enemy_costs[new_index]
+		enemy_tokens-=enemy_cost
+		if enemy_tokens<0:
+			wave_over()
+			return
+		$enemy_spawn.start()
 	
 	
 
@@ -87,19 +95,21 @@ func wave_over():
 		5:
 			change_wave_values([preload("res://demon_enemy.tres")],[preload("res://boss_enemy.tres"),preload("res://base_enemy.tres")])
 		6:
-			change_wave_values([preload("res://boss_enemy.tres")],[preload("res://fast_enemy.tres")])
+			change_wave_values([preload("res://demon_enemy.tres")],[preload("res://fast_enemy.tres")])
 		7:
-			pass
+			enemy_types = [preload("res://the_final_man.tres")]
 		8:
 			pass
+			#await get_tree().create_timer(800.0)
+			
 		9:
-			pass
+			wait = true
+			enemy_types = []
 		10:
 			pass
 		11:
-			get_tree().change_scene_to_file("res://UI/You_win.tscn")
+			pass
 	$enemy_spawn.start()
-	print("enemy types     -  - - - - - - - -         ",enemy_types)
 func change_wave_values(adds: Array,subtracts: Array):
 	for i in subtracts.size():
 		var erase_index = 0

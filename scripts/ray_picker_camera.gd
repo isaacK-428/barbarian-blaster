@@ -78,7 +78,7 @@ func _process(delta: float) -> void:
 		var collider = ray_cast_3d.get_collider()
 		if collider is GridMap:
 			Input.set_default_cursor_shape(Input.CURSOR_POINTING_HAND)
-			if Input.is_action_pressed("mouse_click"):
+			if Input.is_action_just_pressed("mouse_click"):
 				var gold_cost = 67
 				gold_cost = new_turret.gold_cost 
 				if Cheese.gold>=gold_cost:
@@ -89,6 +89,8 @@ func _process(delta: float) -> void:
 						var tile_map_position = grid_map.map_to_local(cell)
 						turret_manager.spawn_turret(tile_map_position,new_turret)
 						Cheese.gold-=gold_cost
+				else:
+					$AudioStreamPlayer.play()
 		else:
 			Input.set_default_cursor_shape(Input.CURSOR_ARROW)
 		if collider.is_in_group("turret") and Input.is_action_just_pressed("mouse_click") and Cheese.in_upgrade==false:
@@ -134,6 +136,8 @@ func button_actions(button):
 				#fire_rate -= 0.2 
 				upgrades[0] += 1
 				Cheese.gold -= cost
+			else:
+				$AudioStreamPlayer.play()
 		2:
 			if upgrades[1] <= 2 and Cheese.gold >= upgrade_gold_costs[1][upgrades[1] + 1]:
 				var cost = upgrade_gold_costs[1][upgrades[1] + 1]
@@ -141,6 +145,8 @@ func button_actions(button):
 				#damage += 1
 				upgrades[1] += 1
 				Cheese.gold -= cost
+			else:
+				$AudioStreamPlayer.play()
 		3:
 			if upgrades[2] <= 2 and Cheese.gold >= upgrade_gold_costs[2][upgrades[2] + 1]: 
 				var cost = upgrade_gold_costs[2][upgrades[2] + 1]
@@ -148,6 +154,8 @@ func button_actions(button):
 				#ability += 1
 				upgrades[2] += 1
 				Cheese.gold -= cost
+			else:
+				$AudioStreamPlayer.play()
 		4:
 			print("4") #exit top right
 			hide_upgrade_UI()

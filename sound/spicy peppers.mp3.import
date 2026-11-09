@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://0uwtpqkh6hgy"
+path="res://.godot/imported/spicy peppers.mp3-87684bde14b822eb13786d71fd69b59b.mp3str"
+
+[deps]
+
+source_file="res://sound/spicy peppers.mp3"
+dest_files=["res://.godot/imported/spicy peppers.mp3-87684bde14b822eb13786d71fd69b59b.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

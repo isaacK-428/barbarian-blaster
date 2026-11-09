@@ -14,6 +14,7 @@ var ability = 1
 var miner = preload("res://tower_types/miner.tres")
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	$AudioStreamPlayer.play()
 	if enemy_type!=load("res://tower_types/miner.tres"):
 		$Timer2.queue_free()
 	fire_rate = turret_type.fire_rate
