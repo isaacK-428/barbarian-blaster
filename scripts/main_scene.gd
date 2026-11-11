@@ -41,21 +41,22 @@ var enemy_costs = [
 ]
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	var x = log(2.718)
-	print(x)
+	await get_tree().create_timer(5.0).timeout
+	#Engine.time_scale = 3.0
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	print(wait)
 	$Label3D.text = str(Cheese.gold)
 	if wait == true:
-		if get_tree().get_nodes_in_group("enemy"):
+		print(get_tree().get_nodes_in_group("enemy"))
+		if get_tree().get_nodes_in_group("enemy").size()<=0:
 			get_tree().change_scene_to_file("res://UI/You_win.tscn")
 
 
 func _on_enemy_spawn_timeout() -> void:
 	if enemy_types.size()>0:
-		print("tokens === ",enemy_tokens)
 		$enemy_spawn.wait_time = timer_length
 		var E_I = enemy.instantiate()    
 		E_I.progress = 0.0
@@ -77,12 +78,10 @@ func _on_enemy_spawn_timeout() -> void:
 func _on_timer_timeout() -> void:
 	time_passed+=1
 func wave_over():
-	print("wave over")
 	wave+=1
 	#enemy_types = wave_enemies[wave-1]
 	enemy_tokens = wave_total_costs[wave-1]
 	await get_tree().create_timer(1.0).timeout
-	print("lets go")
 	match wave:
 		1:
 			change_wave_values([preload("res://fast_enemy.tres"),preload("res://fast_enemy.tres")],[])
@@ -100,11 +99,11 @@ func wave_over():
 			enemy_types = [preload("res://the_final_man.tres")]
 		8:
 			pass
-			#await get_tree().create_timer(800.0)
 			
 		9:
 			wait = true
 			enemy_types = []
+			get_tree().change_scene_to_file("res://UI/You_win.tscn")
 		10:
 			pass
 		11:

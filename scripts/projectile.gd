@@ -15,7 +15,6 @@ func _process(delta: float) -> void:
 func move(delta):
 	if target==null:
 		queue_free()
-		print(target)
 	if target!=null:
 		position += direction * speed * delta
 		direction = (target.global_position - global_position).normalized()

@@ -76,6 +76,9 @@ func _process(delta: float) -> void:
 	ray_cast_3d.force_raycast_update()
 	if ray_cast_3d.is_colliding():
 		var collider = ray_cast_3d.get_collider()
+		if collider.is_in_group("rock"):
+			if Input.is_action_just_pressed("mouse_click"):
+				$AudioStreamPlayer.play()
 		if collider is GridMap:
 			Input.set_default_cursor_shape(Input.CURSOR_POINTING_HAND)
 			if Input.is_action_just_pressed("mouse_click"):
@@ -89,6 +92,8 @@ func _process(delta: float) -> void:
 						var tile_map_position = grid_map.map_to_local(cell)
 						turret_manager.spawn_turret(tile_map_position,new_turret)
 						Cheese.gold-=gold_cost
+					else:
+						$AudioStreamPlayer.play()
 				else:
 					$AudioStreamPlayer.play()
 		else:
@@ -130,6 +135,7 @@ func button_actions(button):
 				resource_index = i
 	match button:
 		1:
+			
 			if upgrades[0] <= 2 and Cheese.gold >= upgrade_gold_costs[0][upgrades[0] + 1]:
 				var cost = upgrade_gold_costs[0][upgrades[0] + 1]
 				fire_rate-=actual_upgrades[resource_index][0][upgrades[0]]
@@ -161,21 +167,15 @@ func button_actions(button):
 			hide_upgrade_UI()
 			Cheese.in_upgrade = false
 		5:
-			print("base")
 			new_turret = turret_types[0]
 		6:
-			print("sniper")
 			new_turret = turret_types[4]
 		7:
-			print("minigunner")
 			new_turret = turret_types[3]
 		8:
-			print("blaster")
 			new_turret = turret_types[2]
 		9:
-			print("miner")
 			new_turret = turret_types[1]
-
 			
 	if button <= 4:
 		$up_grade_UI/button2/Label3D2.text = str(fire_rate)
@@ -190,7 +190,15 @@ func button_actions(button):
 		# Fixed loop: use range() and correct index offsetting
 		for i in range(upgrade_panels.size()):
 			upgrade_panels[i].change_value(upgrades[i])
-
+func check_upgrade_buttons(resource_index,index):
+	if upgrades[index] <= 2 and Cheese.gold >= upgrade_gold_costs[index][upgrades[index] + 1]:
+		var cost = upgrade_gold_costs[index][upgrades[index] + 1]
+		fire_rate-=actual_upgrades[resource_index][index][upgrades[index]]
+		#fire_rate -= 0.2 
+		upgrades[index] += 1
+		Cheese.gold -= cost
+	else:
+			$AudioStreamPlayer.play()
 func set_turret(collider):
 	collider.get_parent().show_select()
 	
@@ -210,7 +218,6 @@ func set_turret(collider):
 	damage = current_turret.get_parent().damage
 	fire_rate = current_turret.get_parent().fire_rate
 	ability = current_turret.get_parent().ability
-	print("ability   ",current_turret.get_parent().ability)
 	$up_grade_UI/button2/Label3D2.text = str(fire_rate)
 	$up_grade_UI/button/Label3D.text = str(damage)
 	$up_grade_UI/button3/Label3D3	.text = str(ability)

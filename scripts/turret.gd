@@ -19,8 +19,6 @@ func _ready() -> void:
 		$Timer2.queue_free()
 	fire_rate = turret_type.fire_rate
 	damage = turret_type.damage
-	print("turret type   ",turret_type)
-	print("new turret fire rate ",fire_rate)
 	match turret_type.name:
 		"sniper":
 			$barrel/extra_stuff/sniper.show()

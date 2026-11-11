@@ -10,7 +10,7 @@
 
 [sub_resource type="Curve" id="Curve_18nlu"]
 bake_resolution = 106
-_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 0.8053036), 1.4313525, 0.0, 0, 0]
+_data = [Vector2(0, 0.097358406), 0.0, 0.47, 0, 0, Vector2(1, 1), 1.461, 0.0, 0, 0]
 point_count = 2
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_c16ls"]
@@ -110,7 +110,7 @@ curve = SubResource("Curve3D_pw63i")
 
 [node name="base" parent="." unique_id=2070879093 instance=ExtResource("3_7ykc4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, 46)
-max_health = 6
+max_health = 2
 
 [node name="turret_manager" type="Node3D" parent="." unique_id=2056450945 node_paths=PackedStringArray("enemy_path")]
 script = ExtResource("5_gubc5")

@@ -10,14 +10,13 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 func clicked():
-	$AudioStreamPlayer.play()
-	print("random button was clicked")
+	$AudioStreamPlayer.play() 
 	emit_signal("button_pressed")
 	button_actions(index)
 func button_actions(button):
 	match button:
 		5:
-			print(5)
+			pass
 func enable():
 	$CollisionShape3D.disabled = false
 	pass
