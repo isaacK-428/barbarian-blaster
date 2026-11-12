@@ -26,7 +26,7 @@ metallic_texture = SubResource("NoiseTexture2D_ppra6")
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_2mvqj"]
 height = 2.2077637
 
-[node name="enemy" type="PathFollow3D" unique_id=1077895707 groups=["enemy"]]
+[node name="enemy" type="PathFollow3D" unique_id=1077895707 groups=["enemy", "pause"]]
 loop = false
 script = ExtResource("1_2mvqj")
 enemy_type = ExtResource("2_ppra6")

@@ -120,7 +120,7 @@ enemy_path = NodePath("../Path3D")
 [node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=1542534033]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 12, 0)
 
-[node name="enemy_spawn" type="Timer" parent="." unique_id=982898853]
+[node name="enemy_spawn" type="Timer" parent="." unique_id=982898853 groups=["enemy_spawn", "spawn"]]
 wait_time = 1.154
 one_shot = true
 autostart = true

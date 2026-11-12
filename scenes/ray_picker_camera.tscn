@@ -121,7 +121,7 @@ outline_size = 6
 transform = Transform3D(1, 0, -1.7550406e-12, 0, 1, 0, 0, 0, 1, -1.3443985, -3.3770995, -11.359609)
 shape = SubResource("BoxShape3D_jy3mm")
 
-[node name="CSGMesh3D" type="CSGMesh3D" parent="up_grade_UI/StaticBody3D/CollisionShape3D" unique_id=759440463]
+[node name="back" type="CSGMesh3D" parent="up_grade_UI/StaticBody3D/CollisionShape3D" unique_id=759440463]
 transform = Transform3D(1, -1.4210855e-14, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 mesh = SubResource("BoxMesh_fhtue")
 

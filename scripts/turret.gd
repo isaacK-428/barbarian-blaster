@@ -61,7 +61,8 @@ func shoot():
 
 func _on_timer_timeout() -> void:
 	if turret_type!=miner:
-		shoot()
+		if Cheese.paused==false:
+			shoot()
 func apply_upgrades(fire_rate: float,DMG: float,new_ability: int):
 	$Timer.wait_time = fire_rate
 	damage=DMG

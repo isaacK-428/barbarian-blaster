@@ -106,7 +106,7 @@ _data = {
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0dv4j"]
 albedo_color = Color(2.6726522, 2.6726522, 0, 0.05882353)
 
-[node name="turret" type="Node3D" unique_id=256472171 groups=["actual_turret", "turret"]]
+[node name="turret" type="Node3D" unique_id=256472171 groups=["actual_turret", "pause", "turret"]]
 transform = Transform3D(1.93, 0, 0, 0, 1.93, 0, 0, 0, 1.93, 0, 0, 0)
 script = ExtResource("1_el7wl")
 bullet = ExtResource("2_485p4")
@@ -361,7 +361,7 @@ transform = Transform3D(0.23999695, -0.00060344674, -0.0010442493, 0.000607679, 
 material_override = SubResource("StandardMaterial3D_485p4")
 mesh = SubResource("BoxMesh_fowog")
 
-[node name="Timer" type="Timer" parent="." unique_id=471966124]
+[node name="Timer" type="Timer" parent="." unique_id=471966124 groups=["pause", "turret_pause"]]
 wait_time = 0.101
 one_shot = true
 autostart = true
@@ -381,7 +381,7 @@ visible = false
 size = Vector3(1.6660767, 2, 1.6484985)
 material = SubResource("StandardMaterial3D_0dv4j")
 
-[node name="Timer2" type="Timer" parent="." unique_id=1931708092]
+[node name="Timer2" type="Timer" parent="." unique_id=1931708092 groups=["pause", "turret_pause"]]
 autostart = true
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1698524489]

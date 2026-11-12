@@ -109,6 +109,13 @@ func _process(delta: float) -> void:
 			
 								  
 func show_upgrade_UI():
+	for i in get_tree().get_nodes_in_group("turret_pause"):
+		i.paused = true
+	Cheese.paused = true
+	for i in get_tree().get_nodes_in_group("pause"):
+		i.set_process(false)
+		i.set_physics_process(false)
+	get_tree().get_first_node_in_group("enemy_spawn").paused = true
 	$up_grade_UI.position = Vector3(0,0,0)
 	$up_grade_UI.show()
 	for i in get_tree().get_nodes_in_group("button"):
@@ -117,6 +124,13 @@ func show_upgrade_UI():
 	$"up_grade_UI/gold  fire rate".text = str(upgrade_gold_costs[1][upgrades[1] + 1])+str("💲")
 	
 func hide_upgrade_UI(): 
+	for i in get_tree().get_nodes_in_group("turret_pause"):
+		i.paused = false
+	Cheese.paused = false
+	get_tree().get_first_node_in_group("spawn").paused = false
+	for i in get_tree().get_nodes_in_group("pause"):
+		i.set_process(true)
+		i.set_physics_process(true)
 	if current_turret!=null:
 		current_turret.get_parent().show_select()
 		$up_grade_UI.position = Vector3(1000,5000,7000)

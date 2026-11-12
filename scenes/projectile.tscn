@@ -9,7 +9,7 @@ albedo_color = Color(1, 0, 0, 1)
 
 [sub_resource type="SphereMesh" id="SphereMesh_q3m7n"]
 
-[node name="projectile" type="Area3D" unique_id=624005523]
+[node name="projectile" type="Area3D" unique_id=624005523 groups=["pause"]]
 top_level = true
 script = ExtResource("1_c8fcr")
 
